@@ -280,7 +280,7 @@ class PlayState extends MusicBeatState
 		// for lua
 		instance = this;
                 sicks = 0;
-                bads = 0
+                bads = 0;
                 shits = 0;
 		debugKeysChart = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_2'));
