@@ -223,8 +223,10 @@ class PlayState extends MusicBeatState
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
+        public var judgementCounter:FlxText;
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
+        var judgementCounterTween:FlxTween;
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
@@ -277,7 +279,9 @@ class PlayState extends MusicBeatState
 
 		// for lua
 		instance = this;
-
+                sicks = 0;
+                bads = 0
+                shits = 0;
 		debugKeysChart = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_2'));
 
@@ -1011,6 +1015,14 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
+judgementCounter = new FlxText(20, 0, 0, "", 20);
+judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+                judgementCounter.borderSize = 2;
+                judgementCounter.borderQuality = 2;
+                judgementCounter.scrollFactor.set();
+                judgementCounter.screenCenter(Y);
+                if(!ClientPrefs.hideHud) {add(judgementCounter);}
+
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1034,6 +1046,7 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
+                judgementCounter.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
 		#if mobileC
@@ -2189,9 +2202,11 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		if(ratingName == '?') {
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
+			scoreTxt.text = 'Score: ' + songScore + ' | Health: 50 % | Rating: ' + ratingName;
+                        judgementCounter.text = 'Sicks: 0 \nGoods: 0\nBads: 0\nShits: 0\nMisses: 0\ne';
 		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+			scoreTxt.text = 'Score: ' + songScore + ' | Health: ' + Math.round(health * 50) + '% | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+                        judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}\ne';
 		}
 
 		if(botplayTxt.visible) {
@@ -3305,7 +3320,8 @@ class PlayState extends MusicBeatState
 
 			if(ClientPrefs.scoreZoom)
 			{
-				if(scoreTxtTween != null) {
+				if(scoreTxtTween != null && judgementCounterTween != null) {
+                                        judgementCounterTween.cancel();
 					scoreTxtTween.cancel();
 				}
 				scoreTxt.scale.x = 1.075;
@@ -3315,6 +3331,14 @@ class PlayState extends MusicBeatState
 						scoreTxtTween = null;
 					}
 				});
+                                judgementCounter.scale.x = 1.075;
+                                judgementCounter.scale.y = 1.075;
+                                judgementCounterTween = FlxTween.tween(judgementCounter.scale, {x: 1, y: 1}, 0.2, { 
+                                      onComplete: function(twn:FlxTween) {
+                                           judgementCounterTween = null;
+                                         }
+                                         });
+
 			}
 		}
 
