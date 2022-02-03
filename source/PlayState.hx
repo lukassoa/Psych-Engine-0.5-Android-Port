@@ -4190,7 +4190,10 @@ judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAli
 		iconP2.updateHitbox();
 
 		if (curBeat % gfSpeed == 0 && !gf.stunned && gf.animation.curAnim.name != null && !gf.animation.curAnim.name.startsWith("sing"))
-                  var funny:Float = (healthBar.percent * 0.01) + 0.01;
+
+                {
+
+                var funny:Float = (healthBar.percent * 0.01) + 0.01;
 
 		//icon squish funny haha
 		iconP1.setGraphicSize(Std.int(iconP1.width + (50 * (2 - funny))),Std.int(iconP1.height - (25 * (2 - funny))));
@@ -4199,7 +4202,7 @@ judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAli
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
                 
-		{
+		
 			gf.dance();
 		}
 
