@@ -23,7 +23,7 @@ class Main extends Sprite
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
 	public static var fpsVar:FPS;
-        public static var memoryCounter:MemoryCounter
+        public static var memoryCounter:MemoryCounter;
 
 	private static var dataPath:String = null;
 
