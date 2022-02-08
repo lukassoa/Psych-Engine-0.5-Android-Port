@@ -3524,12 +3524,12 @@ class PlayState extends MusicBeatState
 							sortedNotesList.push(daNote);
 							//notesDatas.push(daNote.noteData);
 						}
-                                                if(!ClientPrefs.noAntimash)
+                                                if(!ClientPrefs.noAntimash) {
 						canMiss = true;
-                                                else
+						}
 						if(ClientPrefs.noAntimash)
 						canMiss = false;
-						end
+						}
 					}
 				});
 				sortedNotesList.sort((a, b) -> Std.int(a.strumTime - b.strumTime));
