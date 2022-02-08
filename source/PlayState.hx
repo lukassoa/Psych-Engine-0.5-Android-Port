@@ -1017,7 +1017,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-                versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() + " | Psych Engine: v" + MainMenuState.psychEngineVersion, 16);
+                versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() , 16);
 			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			versionTxt.scrollFactor.set();
 			add(versionTxt);
@@ -2213,7 +2213,7 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' // Health: 50 % // Rank: ' + ratingName;
                         judgementCounter.text = 'Sicks: 0 \nGoods: 0\nBads: 0\nShits: 0\nMisses: 0\ne';
 		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' // Health: ' + Math.round(health * 50) + ' % // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank:' + ratingName + '(' + ratingFC + ')' ;//peeps wanted no integer rating
+			scoreTxt.text = 'Score: ' + songScore + ' // Health: ' + Math.round(health * 50) + '% // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank:' + ratingName + ' (' + ratingFC + ')' ;//peeps wanted no integer rating
                         judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}\ne';
 		}
 
