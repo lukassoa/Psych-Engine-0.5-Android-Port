@@ -1024,12 +1024,13 @@ class PlayState extends MusicBeatState
 			add(versionTxt);
                 }
 		
-		if(ClientPrefs.noAntimash);
+		if(ClientPrefs.noAntimash) {
                 versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() + "| no Antimash!" , 16);
                         versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                         versionTxt.scrollFactor.set();
                         add(versionTxt);
                 }
+
                 judgementCounter = new FlxText(20, 0, 0, "", 20);
                 judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 judgementCounter.borderSize = 2;
