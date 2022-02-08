@@ -2213,7 +2213,7 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' // Health: 50 % // Rank: ' + ratingName;
                         judgementCounter.text = 'Sicks: 0 \nGoods: 0\nBads: 0\nShits: 0\nMisses: 0\ne';
 		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' // Health: ' + Math.round(health * 50) + '% // Rank: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' // ' + ratingFC;//peeps wanted no integer rating
+			scoreTxt.text = 'Score: ' + songScore + ' // Health: ' + Math.round(health * 50) + ' % // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank:' + ratingName + '(' + ratingFC + ')' ;//peeps wanted no integer rating
                         judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}\ne';
 		}
 
