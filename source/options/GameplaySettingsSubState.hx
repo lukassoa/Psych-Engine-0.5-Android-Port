@@ -69,13 +69,6 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
-          
-                var option:Option = new Option('No AntiMash',
-                        "If checked, mashing gets disabled.",
-                        'noAntiMash',
-                        'bool',
-                        false);
-                addOption(option)
 
 		var option:Option = new Option('Note Delay',
 			'Changes how late a note is spawned.\nUseful for preventing audio lag from wireless earphones.',
