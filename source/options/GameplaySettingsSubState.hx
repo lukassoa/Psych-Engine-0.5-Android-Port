@@ -64,7 +64,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 //I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
-		var option:Option = new Option('No antimash', //Name
+		var option:Option = new Option('No Antimash', //Name
 			'If checked, disables antimash.', //Description
 			'noAntimash', //Save data variable name
 			'bool', //Variable type

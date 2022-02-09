@@ -28,6 +28,7 @@ class ClientPrefs {
 	public static var timeBarType:String = 'Time Left';
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
+	public static var healthCounter:Bool = true;
 	public static var healthBarAlpha:Float = 1;
 	#if mobile
 	public static var controllerMode:Bool = true;
@@ -107,6 +108,7 @@ class ClientPrefs {
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.noAntimash = noAntimash;
 		FlxG.save.data.scoreZoom = scoreZoom;
+		FlxG.save.data.healthCounter = healthCounter;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
 		FlxG.save.data.comboOffset = comboOffset;
@@ -155,8 +157,11 @@ class ClientPrefs {
 		if(FlxG.save.data.lowQuality != null) {
 			lowQuality = FlxG.save.data.lowQuality;
 		}
-		if(FlxG.save.data.lowQuality != null) {
+		if(FlxG.save.data.noAntimash != null) {
                         noAntimash = FlxG.save.data.noAntimash;
+                }
+		if(FlxG.save.data.healthCounter != null) {
+                        healthCounter = FlxG.save.data.healthCounter;
                 }
 		if(FlxG.save.data.judgements != null) {
                         judgements = FlxG.save.data.judgements;

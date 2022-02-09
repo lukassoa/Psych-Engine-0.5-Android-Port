@@ -1018,13 +1018,13 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		healthCounter = new FlxText(0, healthBarBG.y - 46, FlxG.width, "health:" + Math.round(health * 50) + " %"  , 20);
-                healthCounter.setFormat(Paths.font("vcr.ttf"), 10, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		healthCounter = new FlxText(0, healthBarBG.y - 42, FlxG.width, "" , 20);
+                healthCounter.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 healthCounter.scrollFactor.set();
                 healthCounter.borderSize = 1.25;
 		healthCounter.alpha = ClientPrefs.healthBarAlpha;
                 healthCounter.visible = !ClientPrefs.hideHud;
-                add(healthCounter);
+                if(ClientPrefs.healthCounter) { add(healthCounter); }
 
 		if (!ClientPrefs.noAntimash) {
 			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() , 16);
@@ -2226,9 +2226,11 @@ class PlayState extends MusicBeatState
 		if(ratingName == '?') {
 			scoreTxt.text = 'Score: ' + songScore + ' // Misses: 0 // Rank: ' + ratingName;
                         judgementCounter.text = 'Sicks: 0 \nGoods: 0\nBads: 0\nShits: 0\ne';
+			healthCounter.text = 'Health: 50%';
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' // Misses: ' + songMisses + ' // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank: ' + ratingName + ' (' + ratingFC + ')' ;//peeps wanted no integer rating
                         judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nE';
+			healthCounter.text = 'Health: ' + Math.round(health * 50) + '%'  ;
 		}
 
 		if(botplayTxt.visible) {
