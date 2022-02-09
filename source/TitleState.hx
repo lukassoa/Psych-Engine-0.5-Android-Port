@@ -344,7 +344,7 @@ class TitleState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
-		Timer += 1
+		Timer += 1;
 		gradientBar.updateHitbox();
 		gradientBar.y = FlxG.height - gradientBar.height;
 
