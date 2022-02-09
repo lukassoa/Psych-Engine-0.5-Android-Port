@@ -228,6 +228,7 @@ class PlayState extends MusicBeatState
 	var scoreTxtTween:FlxTween;
         var judgementCounterTween:FlxTween;
         var versionTxt:FlxText;
+	var healthCounter:FlxText;
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
@@ -1017,11 +1018,19 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
+		healthCounter = new FlxText(0, healthBarBG.y - 46, FlxG.width, "health:" + Math.round(health * 50) + ' %'  , 20);
+                healthCounter.setFormat(Paths.font("vcr.ttf"), 10, FlxColor.WHITE, CENTER, FFllxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+                healthCounter.scrollFactor.set();
+                healthCounter.borderSize = 1.25;
+		healthCounter.alpha = ClientPrefs.healthBarAlpha;
+                healthCounter.visible = !ClientPrefs.hideHud;
+                add(healthCounter);
+
 		if (!ClientPrefs.noAntimash) {
 			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString()  , 16);
 		}
 		else if (ClientPrefs.noAntimash) {
-			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + "- " + CoolUtil.difficultyString() + " | no Antimash!" , 16); 
+			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + "- " + CoolUtil.difficultyString() + " | no Antimash! , 16); 
 		}
 			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			versionTxt.scrollFactor.set();
@@ -2215,11 +2224,11 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		if(ratingName == '?') {
-			scoreTxt.text = 'Score: ' + songScore + ' // Health: 50 % // Rank: ' + ratingName;
-                        judgementCounter.text = 'Sicks: 0 \nGoods: 0\nBads: 0\nShits: 0\nMisses: 0\ne';
+			scoreTxt.text = 'Score: ' + songScore + ' // Misses: 0 // Rank: ' + ratingName;
+                        judgementCounter.text = 'Sicks: 0 \nGoods: 0\nBads: 0\nShits: 0\ne';
 		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' // Health: ' + Math.round(health * 50) + '% // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank:' + ratingName + ' (' + ratingFC + ')' ;//peeps wanted no integer rating
-                        judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}\ne';
+			scoreTxt.text = 'Score: ' + songScore + ' // Misses: ' + songMisses + ' // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank: ' + ratingName + ' (' + ratingFC + ')' ;//peeps wanted no integer rating
+                        judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nE';
 		}
 
 		if(botplayTxt.visible) {
