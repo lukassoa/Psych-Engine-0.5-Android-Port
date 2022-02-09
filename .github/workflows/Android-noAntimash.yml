@@ -69,6 +69,7 @@ jobs:
           haxelib list
       - name: patching for noAntimash
         run: |
+          cd /home/runner/work/Psych-Engine-0.5-Android-Port/Psych-Engine-0.5-Android-Port/
           patch -p0 < noAntimash.patch
 
       - name: Build Log
