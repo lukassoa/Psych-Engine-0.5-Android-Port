@@ -540,7 +540,6 @@ class TitleState extends MusicBeatState
 				// credTextShit.visible = false;
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
-                                       
 				case 5:
 					#if PSYCH_WATERMARKS
 					createCoolText(['Not associated', 'with'], -40);
@@ -568,22 +567,17 @@ class TitleState extends MusicBeatState
 					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = "Friday";
-				// credTextShit.screenCenter()
-                            createCoolText(['Lo modifique en mobil'], 15);
+				// credTextShit.screenCenter();
 				case 13:
-					addMoreText('Ayuda');
-				// credTextShit.visible = true;
-				case 15:
-                                       deleteCoolText();
-				case 16:
 					addMoreText('Friday');
-				case 17:
+				// credTextShit.visible = true;
+				case 14:
 					addMoreText('Night');
 				// credTextShit.text += '\nNight';
-				case 18:
+				case 15:
 					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
 
-				case 19:
+				case 16:
 					skipIntro();
 			}
 		}
