@@ -13,6 +13,7 @@ class ClientPrefs {
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
+	public static var judgements:Bool = true;
 	public static var lowQuality:Bool = false;
 	public static var framerate:Int = 60;
 	public static var cursing:Bool = true;
@@ -98,6 +99,7 @@ class ClientPrefs {
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
+		FlxG.save.data.judgements = judgements;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
@@ -155,6 +157,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.lowQuality != null) {
                         noAntimash = FlxG.save.data.noAntimash;
+                }
+		if(FlxG.save.data.judgements != null) {
+                        judgements = FlxG.save.data.judgements;
                 }
 		if(FlxG.save.data.framerate != null) {
 			framerate = FlxG.save.data.framerate;

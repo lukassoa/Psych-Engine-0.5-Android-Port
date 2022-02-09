@@ -1018,18 +1018,14 @@ class PlayState extends MusicBeatState
 		add(scoreTxt);
 
 		if (!ClientPrefs.noAntimash) {
-                versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString()  , 16);
+			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString()  , 16);
+		}
+		else if (ClientPrefs.noAntimash) {
+			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + "- " + CoolUtil.difficultyString() + " | no Antimash! , 16); 
+		}
 			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			versionTxt.scrollFactor.set();
 			add(versionTxt);
-		}
-		
-		else if (ClientPrefs.noAntimash) {
-			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() + "| no Antimash!" , 16);
-			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-                        versionTxt.scrollFactor.set();
-                        add(versionTxt);
-                }
 
                 judgementCounter = new FlxText(20, 0, 0, "", 20);
                 judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1037,7 +1033,7 @@ class PlayState extends MusicBeatState
                 judgementCounter.borderQuality = 2;
                 judgementCounter.scrollFactor.set();
                 judgementCounter.screenCenter(Y);
-                if(!ClientPrefs.hideHud) {add(judgementCounter);}
+                if(ClientPrefs.judgements) {add(judgementCounter);}
 
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
