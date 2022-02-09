@@ -68,8 +68,8 @@ jobs:
           haxelib install actuate 
           haxelib list
       - name: patching for noAntimash
-      - run: |
-        patch -p0 < noAntimash.patch
+        run: |
+          patch -p0 < noAntimash.patch
 
       - name: Build Log
         run: |
