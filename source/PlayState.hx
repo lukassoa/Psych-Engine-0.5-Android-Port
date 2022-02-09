@@ -1021,7 +1021,7 @@ class PlayState extends MusicBeatState
 			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString()  , 16);
 		}
 		else if (ClientPrefs.noAntimash) {
-			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + "- " + CoolUtil.difficultyString() + " | no Antimash! , 16); 
+			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + "- " + CoolUtil.difficultyString() + " | no Antimash!" , 16); 
 		}
 			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			versionTxt.scrollFactor.set();
