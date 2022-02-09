@@ -185,10 +185,10 @@ class FreeplayState extends MusicBeatState
 		#end
 		#else
 		#if PRELOAD_ALL
-		var leText:String = "Press X to listen to the Song / Press RED to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
+		var leText:String = "Press X to listen to the Song / Press RED to open the Gameplay Changers Menu / Press Y to Reset your Score and Acc.";
 		var size:Int = 16;
 		#else
-		var leText:String = "Press RED to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
+		var leText:String = "Press RED to open the Gameplay Changers Menu / Press Y to Reset your Score and Acc.";
 		var size:Int = 18;
 		#end		
 		#end
@@ -383,6 +383,16 @@ class FreeplayState extends MusicBeatState
 			curDifficulty = 0;
 
 		lastDifficultyName = CoolUtil.difficulties[curDifficulty];
+
+		switch (curDifficulty) //if you want to put colors on your custom difficulties, create a new case with your color of choice
+		{
+			case 0:
+				FlxTween.color(diffText, 0.3, diffText.color, FlxColor.LIME, {ease: FlxEase.quadInOut});
+			case 1:
+				FlxTween.color(diffText, 0.3, diffText.color, FlxColor.YELLOW, {ease: FlxEase.quadInOut});
+			case 2:
+				FlxTween.color(diffText, 0.3, diffText.color, FlxColor.RED, {ease: FlxEase.quadInOut});
+		}
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);

@@ -17,6 +17,7 @@ class ClientPrefs {
 	public static var framerate:Int = 60;
 	public static var cursing:Bool = true;
 	public static var violence:Bool = true;
+	public static var noAntimash:Bool = false;
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
 	public static var noteOffset:Int = 0;
@@ -102,6 +103,7 @@ class ClientPrefs {
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
+		FlxG.save.data.noAntimash = noAntimash;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
@@ -151,6 +153,9 @@ class ClientPrefs {
 		if(FlxG.save.data.lowQuality != null) {
 			lowQuality = FlxG.save.data.lowQuality;
 		}
+		if(FlxG.save.data.lowQuality != null) {
+                        noAntimash = FlxG.save.data.noAntimash;
+                }
 		if(FlxG.save.data.framerate != null) {
 			framerate = FlxG.save.data.framerate;
 			if(framerate > FlxG.drawFramerate) {

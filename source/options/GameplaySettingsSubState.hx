@@ -63,6 +63,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+//I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
+		var option:Option = new Option('No antimash', //Name
+			'If checked, disables antimash.', //Description
+			'noAntimash', //Save data variable name
+			'bool', //Variable type
+			false); //Default value
+		addOption(option);
+
 		var option:Option = new Option('Disable Reset Button',
 			"If checked, pressing Reset won't do anything.",
 			'noReset',
