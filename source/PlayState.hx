@@ -1019,7 +1019,7 @@ class PlayState extends MusicBeatState
 		add(scoreTxt);
 
 		healthCounter = new FlxText(0, healthBarBG.y - 46, FlxG.width, "health:" + Math.round(health * 50) + " %"  , 20);
-                healthCounter.setFormat(Paths.font("vcr.ttf"), 10, FlxColor.WHITE, CENTER, FFllxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+                healthCounter.setFormat(Paths.font("vcr.ttf"), 10, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 healthCounter.scrollFactor.set();
                 healthCounter.borderSize = 1.25;
 		healthCounter.alpha = ClientPrefs.healthBarAlpha;
