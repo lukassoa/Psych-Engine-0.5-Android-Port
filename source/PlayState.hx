@@ -849,7 +849,7 @@ class PlayState extends MusicBeatState
                         var file:String = Paths.txt(songName + '/' + songName + 'DialogueNoGf'); // Checks for vanilla/Senpai dialogue without Gf
                         if (OpenFlAssets.exists(file))
                         {
-                         dialogue = CoolUtil.coolTextFile(file)             
+                         dialogue = CoolUtil.coolTextFile(file);
                 }
     }
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
