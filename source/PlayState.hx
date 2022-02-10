@@ -1018,8 +1018,8 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		if(!ClientPrefs.noScore) { add(scoreTxt); }
 
-		healthCounter = new FlxText(0, healthBarBG.y - 42, FlxG.width, "" , 20);
-                healthCounter.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		healthCounter = new FlxText(0, healthBarBG.y - 48, FlxG.width, "" , 20);
+                healthCounter.setFormat(Paths.font("vcr.ttf"), 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 healthCounter.scrollFactor.set();
                 healthCounter.borderSize = 1.25;
 		healthCounter.alpha = ClientPrefs.healthBarAlpha;
