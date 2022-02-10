@@ -1323,7 +1323,7 @@ class FunkinLua {
 		});
 
 		Lua_helper.add_callback(lua, "addLuaText", function(tag:String) {
-			if(!ClientPrefs.maxOptimization  && PlayState.instance.modchartTexts.exists(tag)) {
+			if(!ClientPrefs.maxOpt  && PlayState.instance.modchartTexts.exists(tag)) {
 				var shit:ModchartText = PlayState.instance.modchartTexts.get(tag);
 				if(!shit.wasAdded) {
 					getInstance().add(shit);
@@ -1357,7 +1357,7 @@ class FunkinLua {
 		// DEPRECATED, DONT MESS WITH THESE SHITS, ITS JUST THERE FOR BACKWARD COMPATIBILITY
 		Lua_helper.add_callback(lua, "luaSpriteMakeGraphic", function(tag:String, width:Int, height:Int, color:String) {
 			luaTrace("luaSpriteMakeGraphic is deprecated! Use makeGraphic instead", false, true);
-			if(!ClientPrefs.maxOptimization && PlayState.instance.modchartSprites.exists(tag)) {
+			if(!ClientPrefs.maxOpt && PlayState.instance.modchartSprites.exists(tag)) {
 				var colorNum:Int = Std.parseInt(color);
 				if(!color.startsWith('0x')) colorNum = Std.parseInt('0xff' + color);
 
