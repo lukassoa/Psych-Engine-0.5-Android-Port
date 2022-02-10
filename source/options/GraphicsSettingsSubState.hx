@@ -50,6 +50,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
                         false); //Default value
                 addOption(option);
 
+		var option:Option = new Option('No Background', //Name
+                        'If checked, disables the background.'
+                        'noBg', //Save data variable name                                     
+			'bool', //Variable type
+                        false); //Default value            
+                        addOption(option);
+
 		var option:Option = new Option('Max Optimization', //Name
                         'If checked, removes everything except the ui.', //Description
                         'maxOpt', //Save data variable name

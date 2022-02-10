@@ -18,6 +18,7 @@ class ClientPrefs {
 	public static var lowQuality:Bool = false;
 	public static var framerate:Int = 60;
 	public static var cursing:Bool = true;
+	public static var noBg:Bool = false;
 	public static var violence:Bool = true;
 	public static var noAntimash:Bool = false;
 	public static var camZooms:Bool = true;
@@ -105,6 +106,7 @@ class ClientPrefs {
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
+		FlxG.save.data.noBg = noBg;
 		FlxG.save.data.judgements = judgements;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
@@ -172,6 +174,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideGf != null) {
                         hideGf = FlxG.save.data.hideGf;
+                }
+		if(FlxG.save.data.noBg != null) {
+                        noBg = FlxG.save.data.noBg;
                 }
 		if(FlxG.save.data.noAntimash != null) {
                         noAntimash = FlxG.save.data.noAntimash;

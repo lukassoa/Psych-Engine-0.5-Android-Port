@@ -10,6 +10,7 @@ class BGSprite extends FlxSprite
 		super(x, y);
 
 		if(ClientPrefs.maxOpt) kill();
+		if(ClientPrefs.noBg) kill();
 
 		if (animArray != null) {
 			frames = Paths.getSparrowAtlas(image);
