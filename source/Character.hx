@@ -89,12 +89,16 @@ class Character extends FlxSprite
 		this.isPlayer = isPlayer;
 		antialiasing = ClientPrefs.globalAntialiasing;
 
+		if (ClientPrefs.maxOptimization)
+                        kill();
+
 		var library:String = null;
 		switch (curCharacter)
 		{
 			//case 'your character name in case you want to hardcode him instead':
 
 			default:
+
 				var characterPath:String = 'characters/' + curCharacter + '.json';
 				var path:String = Paths.modFolders(characterPath);
 				if (!FileSystem.exists(path)) {

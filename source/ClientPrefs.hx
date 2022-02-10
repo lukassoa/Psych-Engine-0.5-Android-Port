@@ -11,6 +11,7 @@ class ClientPrefs {
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
+	public static var maxOpt:Bool = false;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var judgements:Bool = true;
@@ -22,6 +23,7 @@ class ClientPrefs {
 	public static var camZooms:Bool = true;
 	public static var noScore:Bool = false;
 	public static var hideHud:Bool = false;
+	public static var hideGf:Bool = false;
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
@@ -92,6 +94,8 @@ class ClientPrefs {
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.showFPS = showFPS;
+		FlxG.save.data.hideGf = hideGf;
+		FlxG.save.data.maxOpt = maxOpt;
 		FlxG.save.data.flashing = flashing;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
 		FlxG.save.data.noteSplashes = noteSplashes;
@@ -139,10 +143,12 @@ class ClientPrefs {
 			downScroll = FlxG.save.data.downScroll;
 		}
 
-	if(FlxG.save.data.noScore != null) {
+		if(FlxG.save.data.noScore != null) {
                         noScore = FlxG.save.data.noScore;
                 }
-
+		if(FlxG.save.data.maxOpt != null) {
+                        maxOpt = FlxG.save.data.maxOpt;
+                }
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
 		}
@@ -164,6 +170,9 @@ class ClientPrefs {
 		if(FlxG.save.data.lowQuality != null) {
 			lowQuality = FlxG.save.data.lowQuality;
 		}
+		if(FlxG.save.data.hideGf != null) {
+                        hideGf = FlxG.save.data.hideGf;
+                }
 		if(FlxG.save.data.noAntimash != null) {
                         noAntimash = FlxG.save.data.noAntimash;
                 }

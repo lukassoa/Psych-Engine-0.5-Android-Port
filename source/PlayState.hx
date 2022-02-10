@@ -683,7 +683,10 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
-		add(gfGroup);
+		if(ClientPrefs.hideGf)
+                        remove(gfGroup);
+                else
+			add(gfGroup);
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
@@ -835,11 +838,21 @@ class PlayState extends MusicBeatState
 		if (OpenFlAssets.exists(file)) {
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
-
+		if (!ClientPrefs.hideGf)
+                {
 		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
 		if (OpenFlAssets.exists(file)) {
 			dialogue = CoolUtil.coolTextFile(Main.getDataPath() + file);
+			}
 		}
+		else if (ClientPrefs.hideGf)
+                {
+                        var file:String = Paths.txt(songName + '/' + songName + 'DialogueNoGf'); // Checks for vanilla/Senpai dialogue witho>
+                        if (OpenFlAssets.exists(file))
+                        {
+                                dialogue = CoolUtil.coolTextFile(file);
+                        }
+
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
 		// doof.x += 70;
 		// doof.y = FlxG.height * 0.5;

@@ -42,6 +42,21 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			false); //Default value
 		addOption(option);
 
+		//I'd suggest using "Low Quality" as an example for making your own option since it is the simplest here
+                var option:Option = new Option('Hide Gf', //Name
+                        'If checked, disables gf.', //Description
+                        'hideGf', //Save data variable name
+                        'bool', //Variable type
+                        false); //Default value
+                addOption(option);
+
+		var option:Option = new Option('Max Optimization', //Name
+                        'If checked, removes everything except the ui.', //Description
+                        'maxOpt', //Save data variable name
+                        'bool', //Variable type
+                        false); //Default value
+                addOption(option);
+
 		var option:Option = new Option('Anti-Aliasing',
 			'If unchecked, disables anti-aliasing, increases performance\nat the cost of sharper visuals.',
 			'globalAntialiasing',
