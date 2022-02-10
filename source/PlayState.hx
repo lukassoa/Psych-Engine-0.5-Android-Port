@@ -1018,8 +1018,8 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		healthCounter = new FlxText(0, healthBarBG.y - 40, FlxG.width, "" , 20);
-                healthCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		healthCounter = new FlxText(0, healthBarBG.y - 42, FlxG.width, "" , 20);
+                healthCounter.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 healthCounter.scrollFactor.set();
                 healthCounter.borderSize = 1.25;
 		healthCounter.alpha = ClientPrefs.healthBarAlpha;
@@ -1065,6 +1065,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.cameras = [camHUD];
                 versionTxt.cameras = [camOther];
 		botplayTxt.cameras = [camHUD];
+		healthCounter.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
