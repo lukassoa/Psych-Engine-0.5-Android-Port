@@ -33,8 +33,8 @@ class ClientPrefs {
 	public static var timeBarType:String = 'Time Left';
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
-	public static var arrowAlpha:float = 1;
-	public static var strumAlpha:float = 1;
+	public static var arrowAlpha:Float = 1;
+	public static var strumAlpha:Float = 1;
 	public static var healthCounter:Bool = true;
 	public static var healthBarAlpha:Float = 1;
 	#if mobile
