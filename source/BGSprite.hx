@@ -9,8 +9,7 @@ class BGSprite extends FlxSprite
 	public function new(image:String, x:Float = 0, y:Float = 0, ?scrollX:Float = 1, ?scrollY:Float = 1, ?animArray:Array<String> = null, ?loop:Bool = false) {
 		super(x, y);
 
-		if(ClientPrefs.maxOpt) kill();
-		if(ClientPrefs.noBg) kill();
+		if (ClientPrefs.maxOpt) kill();
 
 		if (animArray != null) {
 			frames = Paths.getSparrowAtlas(image);
