@@ -152,7 +152,7 @@ class VisualsUISubState extends BaseOptionsMenu
                 option.changeValue = 0.1;
                 option.decimals = 1;
                 addOption(option);
-
+/*
 		var option:Option = new Option('Strums Transparency',
                         'How much transparent should the strums be.',
 			'healthBarAlpha',
@@ -164,7 +164,8 @@ class VisualsUISubState extends BaseOptionsMenu
                 option.changeValue = 0.1;
 		option.decimals = 1;
                 addOption(option);
-		
+	//no necesario y es inutil
+*/		
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
 			'showFPS',

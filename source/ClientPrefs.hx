@@ -34,7 +34,7 @@ class ClientPrefs {
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var arrowAlpha:Float = 1;
-	public static var strumAlpha:Float = 1;
+//	public static var strumAlpha:Float = 1;
 	public static var enemyArrowAlpha:Float = 1;
 	public static var healthCounter:Bool = true;
 	public static var healthBarAlpha:Float = 1;
@@ -124,7 +124,7 @@ class ClientPrefs {
 		FlxG.save.data.memoryCounter = memoryCounter;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
 		FlxG.save.data.arrowAlpha = arrowAlpha;
-		FlxG.save.data.strumAlpha = strumAlpha;
+//		FlxG.save.data.strumAlpha = strumAlpha;
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
@@ -248,9 +248,9 @@ class ClientPrefs {
 		if(FlxG.save.data.arrowAlpha != null) {
 			arrowAlpha = FlxG.save.data.arrowAlpha;
                 }
-		if(FlxG.save.data.strumAlpha != null) {
-			strumAlpha = FlxG.save.data.strumAlpha;
-                }
+//		if(FlxG.save.data.strumAlpha != null) {
+//			strumAlpha = FlxG.save.data.strumAlpha;
+//                }
 		if(FlxG.save.data.healthBarAlpha != null) {
 			healthBarAlpha = FlxG.save.data.healthBarAlpha;
 		}
