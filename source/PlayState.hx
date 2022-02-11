@@ -1924,12 +1924,12 @@ class PlayState extends MusicBeatState
 			// FlxG.log.add(i);
 			var targetAlpha:Float = 1;
 			if (player < 1) targetAlpha = ClientPrefs.enemyArrowAlpha;
+			else if (player == 1) targetAlpha = targetAlpha = ClientPrefs.arrowAlpha;
 
 			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 			if (!isStoryMode)
 			{
 				babyArrow.y -= 10;
-				babyArrow.alpha = ClientPrefs.arrowAlpha;
 				FlxTween.tween(babyArrow, {y: babyArrow.y + 10, alpha: targetAlpha}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
 			}
 			else
@@ -1939,7 +1939,6 @@ class PlayState extends MusicBeatState
 
 			if (player == 1)
 			{
-				babyArrow.alpha = ClientPrefs.arrowAlpha;
 				playerStrums.add(babyArrow);
 			}
 			else
