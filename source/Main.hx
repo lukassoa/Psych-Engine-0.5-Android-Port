@@ -147,7 +147,7 @@ class Main extends Sprite
                 memoryCounter = new MemoryCounter(10, 3, 0xffffff);
                 addChild(memoryCounter);
                 if(memoryCounter != null) {
-                        memoryCounter.visible = ClientPrefs.showFPS;
+                        memoryCounter.visible = ClientPrefs.memoryCounter;
                 }
 
 		#if html5

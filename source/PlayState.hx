@@ -1665,8 +1665,12 @@ class PlayState extends MusicBeatState
 				notes.forEachAlive(function(note:Note) {
 					note.copyAlpha = false;
 					note.alpha = note.multAlpha;
-					if(ClientPrefs.middleScroll && !note.mustPress) {
-						note.alpha *= 0.5;
+					if (!note.mustPress) {
+						note.alpha = ClientPrefs.enemyArrowAlpha;
+					}
+					else
+					if (note.mustPress) {
+						note.alpha = ClientPrefs.arrowAlpha;
 					}
 				});
 				callOnLuas('onCountdownTick', [swagCounter]);
@@ -1929,7 +1933,7 @@ class PlayState extends MusicBeatState
 			if (!isStoryMode)
 			{
 				babyArrow.y -= 10;
-				babyArrow.alpha = 0;
+				babyArrow.alpha = 0.0;
 				FlxTween.tween(babyArrow, {y: babyArrow.y + 10, alpha: targetAlpha}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
 			}
 			else
@@ -2438,7 +2442,7 @@ class PlayState extends MusicBeatState
 				var strumX:Float = 0;
 				var strumY:Float = 0;
 				var strumAngle:Float = 0;
-				var strumAlpha:Float = 0;
+				var strumAlpha:Float = ClientPrefs.strumAlpha;
 				if(daNote.mustPress) {
 					strumX = playerStrums.members[daNote.noteData].x;
 					strumY = playerStrums.members[daNote.noteData].y;

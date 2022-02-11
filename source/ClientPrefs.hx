@@ -18,13 +18,14 @@ class ClientPrefs {
 	public static var lowQuality:Bool = false;
 	public static var framerate:Int = 60;
 	public static var cursing:Bool = true;
-	public static var noBg:Bool = false;
+//	public static var noBg:Bool = false;
 	public static var violence:Bool = true;
 	public static var noAntimash:Bool = false;
 	public static var camZooms:Bool = true;
 	public static var noScore:Bool = false;
 	public static var hideHud:Bool = false;
 	public static var hideGf:Bool = false;
+	public static var memoryCounter:Bool = true;
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
@@ -32,6 +33,8 @@ class ClientPrefs {
 	public static var timeBarType:String = 'Time Left';
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
+	public static var arrowAlpha:float = 1;
+	public static var strumAlpha:float = 1;
 	public static var healthCounter:Bool = true;
 	public static var healthBarAlpha:Float = 1;
 	#if mobile
@@ -106,7 +109,7 @@ class ClientPrefs {
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
-		FlxG.save.data.noBg = noBg;
+//		FlxG.save.data.noBg = noBg;
 		FlxG.save.data.judgements = judgements;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
@@ -117,7 +120,10 @@ class ClientPrefs {
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.healthCounter = healthCounter;
 		FlxG.save.data.noReset = noReset;
+		FlxG.save.data.memoryCounter = memoryCounter;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
+		FlxG.save.data.arrowAlpha = arrowAlpha;
+		FlxG.save.data.strumAlpha = strumAlpha;
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
@@ -148,6 +154,9 @@ class ClientPrefs {
 		if(FlxG.save.data.noScore != null) {
                         noScore = FlxG.save.data.noScore;
                 }
+		if(FlxG.save.data.memoryCounter != null) {
+			memoryCounter = FlxG.save.data.memoryCounter;
+                }
 		if(FlxG.save.data.maxOpt != null) {
                         maxOpt = FlxG.save.data.maxOpt;
                 }
@@ -175,9 +184,9 @@ class ClientPrefs {
 		if(FlxG.save.data.hideGf != null) {
                         hideGf = FlxG.save.data.hideGf;
                 }
-		if(FlxG.save.data.noBg != null) {
-                        noBg = FlxG.save.data.noBg;
-                }
+//		if(FlxG.save.data.noBg != null) {
+//                        noBg = FlxG.save.data.noBg;
+//                }
 		if(FlxG.save.data.noAntimash != null) {
                         noAntimash = FlxG.save.data.noAntimash;
                 }
@@ -231,6 +240,12 @@ class ClientPrefs {
 		if(FlxG.save.data.noReset != null) {
 			noReset = FlxG.save.data.noReset;
 		}
+		if(FlxG.save.data.arrowAlpha != null) {
+			arrowAlpha = FlxG.save.data.arrowAlpha;
+                }
+		if(FlxG.save.data.strumAlpha != null) {
+			strumAlpha = FlxG.save.data.strumAlpha;
+                }
 		if(FlxG.save.data.healthBarAlpha != null) {
 			healthBarAlpha = FlxG.save.data.healthBarAlpha;
 		}

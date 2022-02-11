@@ -48,6 +48,13 @@ class VisualsUISubState extends BaseOptionsMenu
                         false);
                 addOption(option);
 
+		var option:Option = new Option('Memory Counter',
+			'If unchecked, disables memory counter.',
+                        'memoryCounter',
+                        'bool',
+                        true);
+                addOption(option);
+
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
 			'hideHud',
@@ -108,6 +115,54 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
+
+		var option:Option = new Option('Arrows Transparency',
+                        'How much transparent should the arrows be.',
+			'arrowAlpha',
+			'percent',
+                        1);
+                option.scrollSpeed = 1.6;
+                option.minValue = 0.0;
+                option.maxValue = 1;
+                option.changeValue = 0.1;
+		option.decimals = 1;
+                addOption(option);
+
+	/*	var option:Option = new Option('Baby Arrow Transparency?',
+                        'How much transparent should the health bar and icons be.',
+                        'babyArrowAlpha',
+                        'percent',
+                        1);
+                option.scrollSpeed = 1.6;
+                option.minValue = 0.0;
+                option.maxValue = 1;
+                option.changeValue = 0.1;
+                option.decimals = 1;
+                addOption(option);
+*/
+                var option:Option = new Option('Opponent Arrows Transparency',
+                        'How much transparent should the opponent arrows be.',
+                        'enemyArrowAlpha',
+                        'percent',
+                        1);
+                option.scrollSpeed = 1.6;
+                option.minValue = 0.0;
+                option.maxValue = 1;
+                option.changeValue = 0.1;
+                option.decimals = 1;
+                addOption(option);
+
+		var option:Option = new Option('Strums Transparency',
+                        'How much transparent should the strums be.',
+			'healthBarAlpha',
+			'percent',
+                        1);
+                option.scrollSpeed = 1.6;
+                option.minValue = 0.0;
+                option.maxValue = 1;
+                option.changeValue = 0.1;
+		option.decimals = 1;
+                addOption(option);
 		
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
