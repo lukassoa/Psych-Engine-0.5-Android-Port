@@ -1666,10 +1666,6 @@ class PlayState extends MusicBeatState
 					note.copyAlpha = false;
 					note.alpha = note.multAlpha;
 					if (!note.mustPress) {
-						note.alpha = ClientPrefs.enemyArrowAlpha;
-					}
-					else
-					if (note.mustPress) {
 						note.alpha = ClientPrefs.arrowAlpha;
 					}
 				});

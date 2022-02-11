@@ -139,7 +139,7 @@ class VisualsUISubState extends BaseOptionsMenu
                 option.changeValue = 0.1;
                 option.decimals = 1;
                 addOption(option);
-*/
+	//todo esto es codigo desactivado lo dejo namas para que vean
                 var option:Option = new Option('Opponent Arrows Transparency',
                         'How much transparent should the opponent arrows be.',
                         'enemyArrowAlpha',
@@ -151,7 +151,7 @@ class VisualsUISubState extends BaseOptionsMenu
                 option.changeValue = 0.1;
                 option.decimals = 1;
                 addOption(option);
-
+*/
 		var option:Option = new Option('Strums Transparency',
                         'How much transparent should the strums be.',
 			'healthBarAlpha',
