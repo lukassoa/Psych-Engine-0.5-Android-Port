@@ -54,6 +54,7 @@ class VisualsUISubState extends BaseOptionsMenu
                         'bool',
                         true);
                 addOption(option);
+		option.onChange = onChangeMemoryCounter;
 
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
@@ -152,20 +153,7 @@ class VisualsUISubState extends BaseOptionsMenu
                 option.changeValue = 0.1;
                 option.decimals = 1;
                 addOption(option);
-/*
-		var option:Option = new Option('Strums Transparency',
-                        'How much transparent should the strums be.',
-			'healthBarAlpha',
-			'percent',
-                        1);
-                option.scrollSpeed = 1.6;
-                option.minValue = 0.0;
-                option.maxValue = 1;
-                option.changeValue = 0.1;
-		option.decimals = 1;
-                addOption(option);
-	//no necesario y es inutil
-*/		
+
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
 			'showFPS',
@@ -182,4 +170,10 @@ class VisualsUISubState extends BaseOptionsMenu
 		if(Main.fpsVar != null)
 			Main.fpsVar.visible = ClientPrefs.showFPS;
 	}
+
+	function onChangeMemoryCounter()
+        {
+                if(Main.memoryCounter != null)
+                        Main.memoryCounter.visible = ClientPrefs.memoryCounter;
+        }	
 }
