@@ -128,6 +128,7 @@ class ClientPrefs {
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
+		FlxG.save.data.enemyArrowAlpha = enemyArrowAlpha;
 
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
@@ -154,6 +155,9 @@ class ClientPrefs {
 
 		if(FlxG.save.data.noScore != null) {
                         noScore = FlxG.save.data.noScore;
+                }
+		if(FlxG.save.data.enemyArrowAlpha != null) {
+                        enemyArrowAlpha = FlxG.save.data.enemyArrowAlpha;
                 }
 		if(FlxG.save.data.memoryCounter != null) {
 			memoryCounter = FlxG.save.data.memoryCounter;
