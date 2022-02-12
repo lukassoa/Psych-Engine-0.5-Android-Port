@@ -27,12 +27,12 @@ class ClientPrefs {
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	// Added by me xd
-	public static var arrowAlpha:Float = 1;
+	public static var arrowOpacity:Float = 1;
 	public static var laneOpacity:Float = 1;
 	public static var maxOpt:Bool = false; //dosent remove bg i dno why
 	public static var opponentLaneOpacity:Float = 1;
 	public static var keTimeBar:Bool = false;
-	public static var enemyArrowAlpha:Float = 1;
+	public static var enemyArrowOpacity:Float = 1;
 	public static var healthCounter:Bool = true;
 	public static var healthBarAlpha:Float = 1;
 	public static var memoryCounter:Bool = true;
