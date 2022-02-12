@@ -11,6 +11,7 @@ class ClientPrefs {
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
+	public static var timeBarType:String = 'Time Left'
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var lowQuality:Bool = false;
@@ -34,7 +35,6 @@ class ClientPrefs {
         public static var keTimeBar:Bool = false;
         public static var enemyArrowOpacity:Float = 1;
         public static var healthCounter:Bool = true;
-        public static var healthBarAlpha:Float = 1;
         public static var memoryCounter:Bool = true;
         public static var noAntimash:Bool = false;
         public static var judgements:Bool = true;
@@ -143,7 +143,6 @@ class ClientPrefs {
 		FlxG.save.data.safeFrames = safeFrames;
 		FlxG.save.data.gameplaySettings = gameplaySettings;
 		FlxG.save.data.controllerMode = controllerMode;
-		FlxG.save.data.noScore = noScore;
 	
 		FlxG.save.flush();
 
@@ -283,7 +282,7 @@ class ClientPrefs {
                 if(FlxG.save.data.keTimeBar != null) {
                         keTimeBar = FlxG.save.data.keTimeBar;
                 }
-		if(FlxG.save.data.controllerMode != null) {
+                if(FlxG.save.data.controllerMode != null) {
 			controllerMode = FlxG.save.data.controllerMode;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
