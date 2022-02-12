@@ -123,7 +123,7 @@ class ClientPrefs {
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
 		// Added by me xd
-		FlxG.save.data.enemyArrowAlpha = enemyArrowAlpha;
+		FlxG.save.data.enemyArrowOpacity = enemyArrowOpacity;
 		FlxG.save.data.hideGf = hideGf;
 		FlxG.save.data.maxOpt = maxOpt;
                 FlxG.save.data.memoryCounter = memoryCounter;
@@ -195,7 +195,7 @@ class ClientPrefs {
                         judgements = FlxG.save.data.judgements;
                 }
 		if(FlxG.save.data.scoreType != null) {
-                        noScore = FlxG.save.data.scoreType;
+                        scoreType = FlxG.save.data.scoreType;
                 }
                 if(FlxG.save.data.enemyArrowOpacity != null) {
                         enemyArrowOpacity = FlxG.save.data.enemyArrowOpacity;
