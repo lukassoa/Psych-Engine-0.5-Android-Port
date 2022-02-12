@@ -262,8 +262,8 @@ class ClientPrefs {
 		if(FlxG.save.data.noReset != null) {
 			noReset = FlxG.save.data.noReset;
 		}
-		if(FlxG.save.data.arrowAlpha != null) {
-			arrowAlpha = FlxG.save.data.arrowAlpha;
+		if(FlxG.save.data.arrowOpacity != null) {
+			arrowOpacity = FlxG.save.data.arrowOpacity;
                 }
 //		if(FlxG.save.data.strumAlpha != null) {
 //			strumAlpha = FlxG.save.data.strumAlpha;
