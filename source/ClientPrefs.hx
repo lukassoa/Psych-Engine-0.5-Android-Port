@@ -134,7 +134,7 @@ class ClientPrefs {
 		FlxG.save.data.keTimeBar = keTimeBar;
 		FlxG.save.data.scoreType = scoreType;
 		FlxG.save.data.laneOpacity = laneOpacity;
-		FlxG.save.data.enemyLaneOpacity = enemyLaneOpacity;
+		FlxG.save.data.opponentLaneOpacity = opponentLaneOpacity;
                 //end
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
@@ -185,7 +185,7 @@ class ClientPrefs {
 		if(FlxG.save.data.hideGf != null) {
                         hideGf = FlxG.save.data.hideGf;
                 }
-		if(FlxG.save.data.noAntimash != null) {
+                if(FlxG.save.data.noAntimash != null) {
                         noAntimash = FlxG.save.data.noAntimash;
                 }
 		if(FlxG.save.data.healthCounter != null) {
@@ -203,7 +203,7 @@ class ClientPrefs {
                 if(FlxG.save.data.maxOpt != null) {
                         maxOpt = FlxG.save.data.maxOpt;
                 }
-		if(FlxG.save.data.arrowAlpha != null) {
+		if(FlxG.save.data.arrowOpacity != null) {
                         arrowOpacity = FlxG.save.data.arrowOpacity;
                 }
 		if(FlxG.save.data.laneOpacity != null) {
@@ -215,7 +215,7 @@ class ClientPrefs {
 		if(FlxG.save.data.keTimeBar != null) {
                         keTimeBar = FlxG.save.data.keTimeBar;
                 }
-//end
+//finish xd
 
 		if(FlxG.save.data.framerate != null) {
 			framerate = FlxG.save.data.framerate;
@@ -345,4 +345,5 @@ class ClientPrefs {
 		}
 		return copiedArray;
 	}
-}
+  }
+
