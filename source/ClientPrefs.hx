@@ -345,5 +345,4 @@ class ClientPrefs {
 		}
 		return copiedArray;
 	}
-  }
-
+  } 
