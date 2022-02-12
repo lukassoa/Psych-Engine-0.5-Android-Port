@@ -23,7 +23,7 @@ class ClientPrefs {
 	public static var violence:Bool = true;
 	public static var noAntimash:Bool = false;
 	public static var camZooms:Bool = true;
-	public static var scoreMode:String = 'Psych Engine';
+	public static var scoreType:String = 'Psych Engine';
 	public static var hideHud:Bool = false;
 	public static var hideGf:Bool = false;
 	public static var memoryCounter:Bool = true;
@@ -124,7 +124,7 @@ class ClientPrefs {
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.healthCounter = healthCounter;
 		FlxG.save.data.keTimeBar = keTimeBar;
-		FlxG.save.data.scoreMode = scoreMode;
+		FlxG.save.data.scoreType = scoreType;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.memoryCounter = memoryCounter;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
@@ -209,8 +209,8 @@ class ClientPrefs {
 		if(FlxG.save.data.judgements != null) {
                         judgements = FlxG.save.data.judgements;
                 }
-		if(FlxG.save.data.scoreMode != null) {
-                        scoreMode = FlxG.save.data.scoreMode;
+		if(FlxG.save.data.scoreType != null) {
+                        scoreType = FlxG.save.data.scoreType;
                 }
 		if(FlxG.save.data.framerate != null) {
 			framerate = FlxG.save.data.framerate;
@@ -353,4 +353,4 @@ class ClientPrefs {
 		}
 		return copiedArray;
 	}
-};
+}
