@@ -883,7 +883,11 @@ class PlayState extends MusicBeatState
 		}
 		updateTime = showTime;
 
-		timeBarBG = new AttachedSprite('timeBar');
+		if (ClientPrefs.keTimeBar) 
+			timeBarBG = new AttachedSprite('healthBar');
+		else
+			timeBarBG = new AttachedSprite('timeBar');
+
 		timeBarBG.x = timeTxt.x;
 		timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
 		timeBarBG.scrollFactor.set();
@@ -892,13 +896,22 @@ class PlayState extends MusicBeatState
 		timeBarBG.color = FlxColor.BLACK;
 		timeBarBG.xAdd = -4;
 		timeBarBG.yAdd = -4;
-		add(timeBarBG);
 
+		if (ClientPrefs.keTimeBar) //bedrock engine my beloved
+			timeBarBG.screenCenter(X);
+
+		add(timeBarBG);
+		
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
 			'songPercent', 0, 1);
 		timeBar.scrollFactor.set();
-		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
-		timeBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
+
+		if (ClientPrefs.keTimeBar)
+			timeBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
+		else
+			timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
+
+		timeBar.numDivisions = 600; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
 		timeBar.alpha = 0;
 		timeBar.visible = showTime;
 		add(timeBar);
@@ -908,6 +921,23 @@ class PlayState extends MusicBeatState
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
 		add(grpNoteSplashes);
+
+		laneunderlayOpponent = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
+		laneunderlayOpponent.alpha = ClientPrefs.opponentLaneOpacity;
+		laneunderlayOpponent.color = FlxColor.BLACK;
+		laneunderlayOpponent.scrollFactor.set();
+
+		laneunderlay = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
+		laneunderlay.alpha = ClientPrefs.laneOpacity;
+		laneunderlay.color = FlxColor.BLACK;
+		laneunderlay.scrollFactor.set();
+
+		if (!ClientPrefs.middleScroll)
+			{
+				add(laneunderlayOpponent);
+			}
+		add(laneunderlay);
+		
 
 		if(ClientPrefs.timeBarType == 'Song Name')
 		{
@@ -1025,8 +1055,14 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
+		if (ClientPrefs.scoreType == 'Psych Engine') {
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		}
+		else if (ClientPrefs.scoreType == 'Kade Engine') {
+		scoreTxt = new FlxText(FlxG.width / 2 - 235, healthBarBG.y + 50, 0, "", 20);
+		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		}
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
@@ -1036,8 +1072,8 @@ class PlayState extends MusicBeatState
                 healthCounter.setFormat(Paths.font("vcr.ttf"), 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 healthCounter.scrollFactor.set();
                 healthCounter.borderSize = 1.25;
-		healthCounter.alpha = ClientPrefs.healthBarAlpha;
-                healthCounter.visible = !ClientPrefs.hideHud;
+		healthCounter.alpha = 1;
+                healthCounter.visible = ClientPrefs.healthCounter
                 if(ClientPrefs.healthCounter) { add(healthCounter); }
 
 		if (!ClientPrefs.noAntimash) {
@@ -1537,6 +1573,13 @@ class PlayState extends MusicBeatState
 		    #end
 			generateStaticArrows(0);
 			generateStaticArrows(1);
+
+			laneunderlay.x = playerStrums.members[0].x - 25;
+			laneunderlayOpponent.x = cpuStrums.members[0].x - 25;
+
+			laneunderlay.screenCenter(Y);
+			laneunderlayOpponent.screenCenter(Y);
+
 			for (i in 0...playerStrums.length) {
 				setOnLuas('defaultPlayerStrumX' + i, playerStrums.members[i].x);
 				setOnLuas('defaultPlayerStrumY' + i, playerStrums.members[i].y);
@@ -1923,8 +1966,8 @@ class PlayState extends MusicBeatState
 		{
 			// FlxG.log.add(i);
 			var targetAlpha:Float = 1;
-			if (player < 1) targetAlpha = ClientPrefs.enemyArrowAlpha;
-			else if (player == 1) targetAlpha = targetAlpha = ClientPrefs.arrowAlpha;
+			if (player < 1) targetAlpha = ClientPrefs.enemyArrowOpacity;
+			else if (player == 1) targetAlpha = targetAlpha = ClientPrefs.arrowOpacity;
 
 			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 			if (!isStoryMode)

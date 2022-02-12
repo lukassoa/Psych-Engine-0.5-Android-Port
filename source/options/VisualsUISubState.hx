@@ -41,11 +41,11 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Hide Score',
-                        'If checked, hides the score.',
-                        'noScore',
-                        'bool',
-                        false);
+		var option:Option = new Option('Score Type:',                                                                  "What should the Time Bar display?",
+                        'scoreType',
+                        'string',
+                        'Psych Engine',
+                        ['Psych Engine', 'Kade Engine', 'Disabled']);
                 addOption(option);
 
 		var option:Option = new Option('Memory Counter',
@@ -98,6 +98,13 @@ class VisualsUISubState extends BaseOptionsMenu
                         'bool',
                         true);
                 addOption(option);
+		
+		var option:Option = new Option('KE Timebar',
+                        'If checked, uses the KE timebar.',
+                        'keTimeBar',
+                        'bool',
+                        true);
+                addOption(option);
 
 		var option:Option = new Option('Score Text Zoom on Hit',
 			"If unchecked, disables the Score text zooming\neverytime you hit a note.",
@@ -105,8 +112,8 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			true);
 		addOption(option);
-		var option:Option = new Option('Health Bar Transparency',
-			'How much transparent should the health bar and icons be.',
+		var option:Option = new Option('Health Bar Opacity',
+			'How Opaque should the health bar and icons be.',
 			'healthBarAlpha',
 			'percent',
 			1);
@@ -117,9 +124,9 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.decimals = 1;
 		addOption(option);
 
-		var option:Option = new Option('Arrows Transparency',
-                        'How much transparent should the arrows be.',
-			'arrowAlpha',
+		var option:Option = new Option('Arrows Opacity',
+                        'How Opaque should the arrows be.',
+			'arrowOpacity',
 			'percent',
                         1);
                 option.scrollSpeed = 1.6;
@@ -129,22 +136,9 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.decimals = 1;
                 addOption(option);
 
-	/*	var option:Option = new Option('Baby Arrow Transparency?',
-                        'How much transparent should the health bar and icons be.',
-                        'babyArrowAlpha',
-                        'percent',
-                        1);
-                option.scrollSpeed = 1.6;
-                option.minValue = 0.0;
-                option.maxValue = 1;
-                option.changeValue = 0.1;
-                option.decimals = 1;
-                addOption(option);
-	//todo esto es codigo desactivado lo dejo namas para que vean
-*/
-                var option:Option = new Option('Opponent Arrows Transparency',
-                        'How much transparent should the opponent arrows be.',
-                        'enemyArrowAlpha',
+                var option:Option = new Option('Opponent Arrows Opacity',
+                        'How Opaque should the opponent arrows be.',
+                        'enemyArrowOpacity',
                         'percent',
                         1);
                 option.scrollSpeed = 1.6;
