@@ -126,16 +126,16 @@ class ClientPrefs {
 		FlxG.save.data.enemyArrowOpacity = enemyArrowOpacity;
 		FlxG.save.data.hideGf = hideGf;
 		FlxG.save.data.maxOpt = maxOpt;
-                FlxG.save.data.memoryCounter = memoryCounter;
+    FlxG.save.data.memoryCounter = memoryCounter;
 		FlxG.save.data.judgements = judgements;
-                FlxG.save.data.arrowOpacity = arrowOpacity;
+    FlxG.save.data.arrowOpacity = arrowOpacity;
 		FlxG.save.data.healthCounter = healthCounter;
 		FlxG.save.data.noAntimash = noAntimash;
 		FlxG.save.data.keTimeBar = keTimeBar;
 		FlxG.save.data.scoreType = scoreType;
 		FlxG.save.data.laneOpacity = laneOpacity;
 		FlxG.save.data.opponentLaneOpacity = opponentLaneOpacity;
-                //end
+    //end
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
 		FlxG.save.data.goodWindow = goodWindow;
@@ -180,41 +180,41 @@ class ClientPrefs {
 		}
 // added by randomxd
 		if(FlxG.save.data.memoryCounter != null) {
-                        memoryCounter = FlxG.save.data.memoryCounter;
-                }
+     memoryCounter = FlxG.save.data.memoryCounter;
+    }
 		if(FlxG.save.data.hideGf != null) {
-                        hideGf = FlxG.save.data.hideGf;
-                }
-                if(FlxG.save.data.noAntimash != null) {
-                        noAntimash = FlxG.save.data.noAntimash;
-                }
+      hideGf = FlxG.save.data.hideGf;
+    }
+    if(FlxG.save.data.noAntimash != null) {
+      noAntimash = FlxG.save.data.noAntimash;
+    }
 		if(FlxG.save.data.healthCounter != null) {
-                        healthCounter = FlxG.save.data.healthCounter;
-                }
+      healthCounter = FlxG.save.data.healthCounter;
+    }
 		if(FlxG.save.data.judgements != null) {
-                        judgements = FlxG.save.data.judgements;
-                }
+      judgements = FlxG.save.data.judgements;
+    }
 		if(FlxG.save.data.scoreType != null) {
-                        scoreType = FlxG.save.data.scoreType;
-                }
-                if(FlxG.save.data.enemyArrowOpacity != null) {
-                        enemyArrowOpacity = FlxG.save.data.enemyArrowOpacity;
-                }
-                if(FlxG.save.data.maxOpt != null) {
-                        maxOpt = FlxG.save.data.maxOpt;
-                }
+      scoreType = FlxG.save.data.scoreType;
+    }
+    if(FlxG.save.data.enemyArrowOpacity != null) {
+      enemyArrowOpacity = FlxG.save.data.enemyArrowOpacity;
+    }
+    if(FlxG.save.data.maxOpt != null) {
+      maxOpt = FlxG.save.data.maxOpt;
+    }
 		if(FlxG.save.data.arrowOpacity != null) {
-                        arrowOpacity = FlxG.save.data.arrowOpacity;
-                }
+      arrowOpacity = FlxG.save.data.arrowOpacity;
+    }
 		if(FlxG.save.data.laneOpacity != null) {
-                        laneOpacity = FlxG.save.data.laneOpacity;
-                }
+      laneOpacity = FlxG.save.data.laneOpacity;
+    }
 		if(FlxG.save.data.opponentLaneOpacity != null) {
-                        opponentLaneOpacity = FlxG.save.data.opponentLaneOpacity;
-                }
+      opponentLaneOpacity = FlxG.save.data.opponentLaneOpacity;
+    }
 		if(FlxG.save.data.keTimeBar != null) {
-                        keTimeBar = FlxG.save.data.keTimeBar;
-                }
+      keTimeBar = FlxG.save.data.keTimeBar;
+    }
 //finish xd
 
 		if(FlxG.save.data.framerate != null) {
