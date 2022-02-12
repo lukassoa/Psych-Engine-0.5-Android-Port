@@ -11,7 +11,6 @@ class ClientPrefs {
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
-	public static var timeBarType:String = 'Time Left'
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var lowQuality:Bool = false;
@@ -24,22 +23,23 @@ class ClientPrefs {
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
+	public static var timeBarType:String = 'Time Left';
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
-	public static var healthBarAlpha:Float = 1;
-//>:(
+	// Added by me xd
 	public static var arrowOpacity:Float = 1;
-        public static var laneOpacity:Float = 1;
-        public static var maxOpt:Bool = false; //dosent remove bg i dno why
-        public static var opponentLaneOpacity:Float = 1;
-        public static var keTimeBar:Bool = false;
-        public static var enemyArrowOpacity:Float = 1;
-        public static var healthCounter:Bool = true;
-        public static var memoryCounter:Bool = true;
-        public static var noAntimash:Bool = false;
-        public static var judgements:Bool = true;
-        public static var scoreType:String = 'Psych Engine';
-        public static var hideGf:Bool = false; //removes bg but dosent remove gf i dno why
+	public static var laneOpacity:Float = 1;
+	public static var maxOpt:Bool = false; //dosent remove bg i dno why
+	public static var opponentLaneOpacity:Float = 1;
+	public static var keTimeBar:Bool = false;
+	public static var enemyArrowOpacity:Float = 1;
+	public static var healthCounter:Bool = true;
+	public static var healthBarAlpha:Float = 1;
+	public static var memoryCounter:Bool = true;
+	public static var noAntimash:Bool = false;
+	public static var judgements:Bool = true;
+	public static var scoreType:String = 'Psych Engine';
+	public static var hideGf:Bool = false; //removes bg but dosent remove gf i dno why
 
 	#if mobile
 	public static var controllerMode:Bool = true;
@@ -122,20 +122,20 @@ class ClientPrefs {
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
-// Added by me xd
-                FlxG.save.data.enemyArrowOpacity = enemyArrowOpacity;
-                FlxG.save.data.hideGf = hideGf;
-                FlxG.save.data.maxOpt = maxOpt;
+		// Added by me xd
+		FlxG.save.data.enemyArrowOpacity = enemyArrowOpacity;
+		FlxG.save.data.hideGf = hideGf;
+		FlxG.save.data.maxOpt = maxOpt;
                 FlxG.save.data.memoryCounter = memoryCounter;
-                FlxG.save.data.judgements = judgements;
+		FlxG.save.data.judgements = judgements;
                 FlxG.save.data.arrowOpacity = arrowOpacity;
-                FlxG.save.data.healthCounter = healthCounter;
-                FlxG.save.data.noAntimash = noAntimash;
-                FlxG.save.data.keTimeBar = keTimeBar;
-                FlxG.save.data.scoreType = scoreType;
-                FlxG.save.data.laneOpacity = laneOpacity;
-                FlxG.save.data.opponentLaneOpacity = opponentLaneOpacity;
-
+		FlxG.save.data.healthCounter = healthCounter;
+		FlxG.save.data.noAntimash = noAntimash;
+		FlxG.save.data.keTimeBar = keTimeBar;
+		FlxG.save.data.scoreType = scoreType;
+		FlxG.save.data.laneOpacity = laneOpacity;
+		FlxG.save.data.enemyLaneOpacity = enemyLaneOpacity;
+                //end
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
 		FlxG.save.data.goodWindow = goodWindow;
@@ -157,7 +157,6 @@ class ClientPrefs {
 		if(FlxG.save.data.downScroll != null) {
 			downScroll = FlxG.save.data.downScroll;
 		}
-
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
 		}
@@ -179,6 +178,45 @@ class ClientPrefs {
 		if(FlxG.save.data.lowQuality != null) {
 			lowQuality = FlxG.save.data.lowQuality;
 		}
+// added by randomxd
+		if(FlxG.save.data.memoryCounter != null) {
+                        memoryCounter = FlxG.save.data.memoryCounter;
+                }
+		if(FlxG.save.data.hideGf != null) {
+                        hideGf = FlxG.save.data.hideGf;
+                }
+		if(FlxG.save.data.noAntimash != null) {
+                        noAntimash = FlxG.save.data.noAntimash;
+                }
+		if(FlxG.save.data.healthCounter != null) {
+                        healthCounter = FlxG.save.data.healthCounter;
+                }
+		if(FlxG.save.data.judgements != null) {
+                        judgements = FlxG.save.data.judgements;
+                }
+		if(FlxG.save.data.scoreType != null) {
+                        scoreType = FlxG.save.data.scoreType;
+                }
+                if(FlxG.save.data.enemyArrowOpacity != null) {
+                        enemyArrowOpacity = FlxG.save.data.enemyArrowOpacity;
+                }
+                if(FlxG.save.data.maxOpt != null) {
+                        maxOpt = FlxG.save.data.maxOpt;
+                }
+		if(FlxG.save.data.arrowAlpha != null) {
+                        arrowOpacity = FlxG.save.data.arrowOpacity;
+                }
+		if(FlxG.save.data.laneOpacity != null) {
+                        laneOpacity = FlxG.save.data.laneOpacity;
+                }
+		if(FlxG.save.data.opponentLaneOpacity != null) {
+                        opponentLaneOpacity = FlxG.save.data.opponentLaneOpacity;
+                }
+		if(FlxG.save.data.keTimeBar != null) {
+                        keTimeBar = FlxG.save.data.keTimeBar;
+                }
+//end
+
 		if(FlxG.save.data.framerate != null) {
 			framerate = FlxG.save.data.framerate;
 			if(framerate > FlxG.drawFramerate) {
@@ -229,7 +267,6 @@ class ClientPrefs {
 		if(FlxG.save.data.comboOffset != null) {
 			comboOffset = FlxG.save.data.comboOffset;
 		}
-		
 		if(FlxG.save.data.ratingOffset != null) {
 			ratingOffset = FlxG.save.data.ratingOffset;
 		}
@@ -245,44 +282,7 @@ class ClientPrefs {
 		if(FlxG.save.data.safeFrames != null) {
 			safeFrames = FlxG.save.data.safeFrames;
 		}
-		// added by randomxd
-                if(FlxG.save.data.memoryCounter != null) {
-                        memoryCounter = FlxG.save.data.memoryCounter;
-                }
-                if(FlxG.save.data.hideGf != null) {
-                        hideGf = FlxG.save.data.hideGf;
-                }
-                if(FlxG.save.data.noAntimash != null) {
-                        noAntimash = FlxG.save.data.noAntimash;
-                }
-                if(FlxG.save.data.healthCounter != null) {
-                        healthCounter = FlxG.save.data.healthCounter;
-                }
-                if(FlxG.save.data.judgements != null) {
-                        judgements = FlxG.save.data.judgements;
-                }
-                if(FlxG.save.data.scoreType != null) {
-                        scoreType = FlxG.save.data.scoreType;
-                }
-		if(FlxG.save.data.enemyArrowOpacity != null) {
-                        enemyArrowOpacity = FlxG.save.data.enemyArrowOpacity;
-                }
-                if(FlxG.save.data.maxOpt != null) {
-                        maxOpt = FlxG.save.data.maxOpt;
-                }
-                if(FlxG.save.data.arrowOpacity != null) {
-                        arrowOpacity = FlxG.save.data.arrowOpacity;
-                }
-                if(FlxG.save.data.laneOpacity != null) {
-                        laneOpacity = FlxG.save.data.laneOpacity;
-                }
-                if(FlxG.save.data.opponentLaneOpacity != null) {
-                        opponentLaneOpacity = FlxG.save.data.opponentLaneOpacity;
-                }
-                if(FlxG.save.data.keTimeBar != null) {
-                        keTimeBar = FlxG.save.data.keTimeBar;
-                }
-                if(FlxG.save.data.controllerMode != null) {
+		if(FlxG.save.data.controllerMode != null) {
 			controllerMode = FlxG.save.data.controllerMode;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
