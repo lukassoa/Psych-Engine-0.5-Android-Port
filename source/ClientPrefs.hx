@@ -134,7 +134,7 @@ class ClientPrefs {
 		FlxG.save.data.keTimeBar = keTimeBar;
 		FlxG.save.data.scoreType = scoreType;
 		FlxG.save.data.laneOpacity = laneOpacity;
-		FlxG.save.data.enemyLaneOpacity = enemyLaneOpacity;
+		FlxG.save.data.opponentLaneOpacity = opponentLaneOpacity;
                 //end
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
