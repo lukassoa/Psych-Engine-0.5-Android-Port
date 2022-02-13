@@ -136,7 +136,31 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.decimals = 1;
                 addOption(option);
 
-                var option:Option = new Option('Opponent Arrows Opacity',
+		var option:Option = new Option('Lane Opacity',
+                        'How Opaque should the lane underlay be.',
+                        'laneOpacity',
+                        'percent',
+                        1);
+                option.scrollSpeed = 1.6;
+                option.minValue = 0.0;
+                option.maxValue = 1;
+                option.changeValue = 0.1;
+                option.decimals = 1;
+                addOption(option);
+		
+		var option:Option = new Option('Enemy Lane Opacity',
+                        'How Opaque should the opponent lane be.',
+                        'opponentLanewOpacity',
+                        'percent',
+                        1);
+                option.scrollSpeed = 1.6;
+                option.minValue = 0.0;
+                option.maxValue = 1;
+                option.changeValue = 0.1;
+                option.decimals = 1;
+                addOption(option);
+
+                var option:Option = new Option('Enemy Arrows Opacity',
                         'How Opaque should the opponent arrows be.',
                         'opponentArrowOpacity',
                         'percent',

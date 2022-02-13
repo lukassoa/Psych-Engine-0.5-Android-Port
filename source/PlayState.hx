@@ -1118,6 +1118,8 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
                 versionTxt.cameras = [camOther];
+		laneunderlayOpponent.cameras = [camHUD];
+		laneunderlay.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		healthCounter.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
