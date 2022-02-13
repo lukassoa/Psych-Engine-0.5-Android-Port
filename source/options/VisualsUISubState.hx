@@ -138,7 +138,7 @@ class VisualsUISubState extends BaseOptionsMenu
 
                 var option:Option = new Option('Opponent Arrows Opacity',
                         'How Opaque should the opponent arrows be.',
-                        'enemyArrowOpacity',
+                        'opponentArrowOpacity',
                         'percent',
                         1);
                 option.scrollSpeed = 1.6;
