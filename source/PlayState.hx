@@ -174,6 +174,10 @@ class PlayState extends MusicBeatState
 	public var instakillOnMiss:Bool = false;
 	public var cpuControlled:Bool = false;
 	public var practiceMode:Bool = false;
+	//lane underlay stuff
+	public var laneunderlay:FlxSprite;
+	public var laneunderlayOpponent:FlxSprite;
+
 
 	var botplaySine:Float = 0;
 	var botplayTxt:FlxText;
@@ -1066,7 +1070,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
-		if(!ClientPrefs.noScore) { add(scoreTxt); }
+		if(ClientPrefs.scoreType != 'Disabled') { add(scoreTxt); }
 
 		healthCounter = new FlxText(0, healthBarBG.y - 48, FlxG.width, "" , 20);
                 healthCounter.setFormat(Paths.font("vcr.ttf"), 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1966,7 +1970,7 @@ class PlayState extends MusicBeatState
 		{
 			// FlxG.log.add(i);
 			var targetAlpha:Float = 1;
-			if (player < 1) targetAlpha = ClientPrefs.enemyArrowOpacity;
+			if (player < 1) targetAlpha = ClientPrefs.opponentArrowOpacity;
 			else if (player == 1) targetAlpha = targetAlpha = ClientPrefs.arrowOpacity;
 
 			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
