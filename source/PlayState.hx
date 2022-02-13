@@ -1073,7 +1073,7 @@ class PlayState extends MusicBeatState
                 healthCounter.scrollFactor.set();
                 healthCounter.borderSize = 1.25;
 		healthCounter.alpha = 1;
-                healthCounter.visible = ClientPrefs.healthCounter
+                healthCounter.visible = ClientPrefs.healthCounter;
                 if(ClientPrefs.healthCounter) { add(healthCounter); }
 
 		if (!ClientPrefs.noAntimash) {
