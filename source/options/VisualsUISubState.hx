@@ -103,7 +103,7 @@ class VisualsUISubState extends BaseOptionsMenu
                         'If checked, uses the KE timebar.',
                         'keTimeBar',
                         'bool',
-                        true);
+                        false);
                 addOption(option);
 
 		var option:Option = new Option('Score Text Zoom on Hit',
