@@ -150,7 +150,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Enemy Lane Opacity',
                         'How Opaque should the opponent lane be.',
-                        'opponentLanewOpacity',
+                        'opponentLaneOpacity',
                         'percent',
                         1);
                 option.scrollSpeed = 1.6;
