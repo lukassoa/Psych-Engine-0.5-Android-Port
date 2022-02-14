@@ -12,7 +12,7 @@ import openfl.events.Event;
 import sys.FileSystem;
 import lime.app.Application;
 import lime.system.System;
-import android*
+import android.*
 #end
 class Main extends Sprite
 {
