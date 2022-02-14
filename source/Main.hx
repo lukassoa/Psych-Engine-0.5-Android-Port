@@ -44,7 +44,7 @@ class Main extends Sprite
                 } 
                 else 
                 { 
-                        androidDir = System.applicationStorageDirectory + "/files/";
+                        androidDir = System.applicationStorageDirectory;
                 }
                 return androidDir;
                 #else
