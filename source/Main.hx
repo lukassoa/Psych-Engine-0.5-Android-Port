@@ -26,6 +26,7 @@ class Main extends Sprite
         #end
 	public static var fpsVar:FPS;
         public static var memoryCounter:MemoryCounter;
+	private static var androidDir:String = null;
 
 	private static var dataPath:String = System.applicationStorageDirectory;
 
@@ -33,7 +34,25 @@ class Main extends Sprite
 	{
 		Lib.current.addChild(new Main());
 	}
-
+	
+	static public function getDataPath():String
+        {
+        	#if android
+                if (androidDir != null && androidDir.length > 0) 
+                {
+                        return androidDir;
+                } 
+                else 
+                { 
+                        androidDir = System.applicationStorageDirectory + "/files/";
+                }
+                return androidDir;
+                #else
+                return "";
+	        #end
+        }
+  
+	
 	public function new()
 	{
 		super();
