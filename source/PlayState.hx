@@ -935,13 +935,13 @@ class PlayState extends MusicBeatState
 		laneunderlay.alpha = ClientPrefs.laneOpacity;
 		laneunderlay.color = FlxColor.BLACK;
 		laneunderlay.scrollFactor.set();
-
+/*
 		if (!ClientPrefs.middleScroll)
 			{
 				add(laneunderlayOpponent);
 			}
-		add(laneunderlay);
-		
+		add(laneunderlay); //disabled for now L
+*/		
 
 		if(ClientPrefs.timeBarType == 'Song Name')
 		{
