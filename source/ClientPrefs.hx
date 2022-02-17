@@ -12,10 +12,12 @@ class ClientPrefs {
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
 	public static var maxOpt:Bool = false;
+	public static var playHitSounds:Bool = false;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var judgements:Bool = true;
 	public static var keTimeBar:Bool = false;
+	public static var dynamicCam:Bool = false;
 	public static var lowQuality:Bool = false;
 	public static var framerate:Int = 60;
 	public static var cursing:Bool = true;
@@ -104,6 +106,8 @@ class ClientPrefs {
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.hideGf = hideGf;
 		FlxG.save.data.maxOpt = maxOpt;
+		FlxG.save.data.playHitSounds = playHitSounds;
+		FlxG.save.data.dynamicCam = dynamicCam;
 		FlxG.save.data.flashing = flashing;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
 		FlxG.save.data.noteSplashes = noteSplashes;
@@ -170,6 +174,12 @@ class ClientPrefs {
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
 		}
+		if(FlxG.save.data.playHitSounds != null) {
+                        playHitSounds = FlxG.save.data.playHitSounds;
+                }
+		if(FlxG.save.data.dynamicCam != null) {
+                        dynamicCam = FlxG.save.data.dynamicCam;
+                }
 		if(FlxG.save.data.showFPS != null) {
 			showFPS = FlxG.save.data.showFPS;
 			if(Main.fpsVar != null) {
@@ -264,6 +274,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.arrowOpacity != null) {
 			arrowOpacity = FlxG.save.data.arrowOpacity;
+                }
+		if(FlxG.save.data.opponentArrowOpacity != null) {
+                        opponentArrowOpacity = FlxG.save.data.opponentArrowOpacity;
                 }
 //		if(FlxG.save.data.strumAlpha != null) {
 //			strumAlpha = FlxG.save.data.strumAlpha;

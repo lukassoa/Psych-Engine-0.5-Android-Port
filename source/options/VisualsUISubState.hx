@@ -98,7 +98,21 @@ class VisualsUISubState extends BaseOptionsMenu
                         'bool',
                         true);
                 addOption(option);
+
+		var option:Option = new Option('Dynamic Cam',
+                        'If checked, enables dynamic cam movement.',
+                        'dynamicCam',
+                        'bool',
+                        false);
+                addOption(option);
 		
+		var option:Option = new Option('Play Hit Sounds',
+                        'If checked enables hit sounds.',
+                        'playHitSounds',
+                        'bool',
+                        false);
+                addOption(option);		
+
 		var option:Option = new Option('KE Timebar',
                         'If checked, uses the KE timebar.',
                         'keTimeBar',

@@ -1261,6 +1261,11 @@ class PlayState extends MusicBeatState
 		CoolUtil.precacheSound('missnote1');
 		CoolUtil.precacheSound('missnote2');
 		CoolUtil.precacheSound('missnote3');
+		if (ClientPrefs.playHitSounds)
+		{
+			CoolUtil.precacheSound('Tick');
+			FlxG.sound.play(Paths.sound('Tick'), 0);
+		}
 
 		#if desktop
 		// Updating Discord Rich Presence.
@@ -3366,7 +3371,8 @@ class PlayState extends MusicBeatState
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.ratingOffset);
 		//trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
-
+		if (ClientPrefs.playHitSounds)
+			FlxG.sound.play(Paths.sound('Tick'));
 		// boyfriend.playAnim('hey');
 		vocals.volume = 1;
 
@@ -3869,6 +3875,8 @@ class PlayState extends MusicBeatState
 			char.playAnim(animToPlay, true);
 			char.holdTimer = 0;
 		}
+		if (camFocus == 'dad' && ClientPrefs.dynamicCam)
+				triggerCamMovement(Math.abs(note.noteData % 4));
 
 		if (SONG.needsVoices)
 			vocals.volume = 1;
@@ -3978,6 +3986,8 @@ class PlayState extends MusicBeatState
 			var isSus:Bool = note.isSustainNote; //GET OUT OF MY HEAD, GET OUT OF MY HEAD, GET OUT OF MY HEAD
 			var leData:Int = Math.round(Math.abs(note.noteData));
 			var leType:String = note.noteType;
+			if (camFocus == 'bf' && ClientPrefs.dynamicCam)
+				triggerCamMovement(Math.abs(note.noteData % 4));
 			callOnLuas('goodNoteHit', [notes.members.indexOf(note), leData, leType, isSus]);
 
 			if (!note.isSustainNote)
