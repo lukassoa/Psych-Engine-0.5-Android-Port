@@ -4284,6 +4284,7 @@ class PlayState extends MusicBeatState
 		iconP2.updateHitbox();
 
 		if (curBeat % gfSpeed == 0 && !gf.stunned && gf.animation.curAnim.name != null && !gf.animation.curAnim.name.startsWith("sing"))
+		if (ClientPrefs.iconBoping) {
 		var funny:Float = (healthBar.percent * 0.01) + 0.01;
 
 		if (curBeat % gfSpeed == 0) {
@@ -4307,6 +4308,7 @@ class PlayState extends MusicBeatState
 			iconP1.updateHitbox();
 			iconP2.updateHitbox();
 		}
+	}
 		{
 			gf.dance();
 		}

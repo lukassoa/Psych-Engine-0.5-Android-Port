@@ -112,6 +112,13 @@ class VisualsUISubState extends BaseOptionsMenu
                         'bool',
                         false);
                 addOption(option);		
+	
+		var option:Option = new Option('Icon Boping',
+                        'If checked enables icon boping.',
+                        'iconBoping',
+                        'bool',
+                        false);
+                addOption(option);
 
 		var option:Option = new Option('KE Timebar',
                         'If checked, uses the KE timebar.',

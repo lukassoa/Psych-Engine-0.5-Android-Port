@@ -12,6 +12,7 @@ class ClientPrefs {
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
 	public static var maxOpt:Bool = false;
+	public static var iconBoping:Bool = false;
 	public static var playHitSounds:Bool = false;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -128,6 +129,7 @@ class ClientPrefs {
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.healthCounter = healthCounter;
 		FlxG.save.data.keTimeBar = keTimeBar;
+		FlxG.save.data.iconBoping = iconBoping;
 		FlxG.save.data.scoreType = scoreType;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.memoryCounter = memoryCounter;
@@ -171,6 +173,9 @@ class ClientPrefs {
 		if(FlxG.save.data.maxOpt != null) {
                         maxOpt = FlxG.save.data.maxOpt;
                 }
+		if(FlxG.save.data.iconBoping != null) {
+                        iconBoping = FlxG.save.data.iconBoping;
+		}
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
 		}
