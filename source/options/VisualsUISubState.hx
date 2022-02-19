@@ -100,7 +100,7 @@ class VisualsUISubState extends BaseOptionsMenu
                 addOption(option);
 
 		var option:Option = new Option('Dynamic Cam',
-                        'If checked, enables dynamic cam movement./nonly works on vanilla FNF!.',
+                        'If checked, enables dynamic cam movement, only works on vanilla FNF!.',
                         'dynamicCam',
                         'bool',
                         false);
