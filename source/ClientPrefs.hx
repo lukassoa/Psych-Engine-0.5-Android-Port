@@ -12,6 +12,8 @@ class ClientPrefs {
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
 	public static var maxOpt:Bool = false;
+	public static var tabi:Bool = false;
+	public static var tabiMax:Int = 3;
 	public static var iconBoping:Bool = false;
 	public static var playHitSounds:Bool = false;
 	public static var globalAntialiasing:Bool = true;
@@ -119,6 +121,8 @@ class ClientPrefs {
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
 //		FlxG.save.data.noBg = noBg;
+		FlxG.save.data.tabi = tabi;
+		FlxG.save.data.tabiMax = tabiMax;
 		FlxG.save.data.judgements = judgements;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
@@ -184,6 +188,12 @@ class ClientPrefs {
                 }
 		if(FlxG.save.data.dynamicCam != null) {
                         dynamicCam = FlxG.save.data.dynamicCam;
+                }
+		if(FlxG.save.data.tabi != null) {
+                        tabi = FlxG.save.data.tabi;
+                }
+		if(FlxG.save.data.tabiMax != null) {
+                        tabiMax = FlxG.save.data.tabiMax;
                 }
 		if(FlxG.save.data.showFPS != null) {
 			showFPS = FlxG.save.data.showFPS;

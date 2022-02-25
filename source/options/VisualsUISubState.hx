@@ -41,7 +41,8 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Score Type:',                                                                  "What should the Time Bar display?",
+		var option:Option = new Option('Score Type:',
+			"What should the Time Bar display?",
                         'scoreType',
                         'string',
                         'Psych Engine',
@@ -126,6 +127,24 @@ class VisualsUISubState extends BaseOptionsMenu
                         'bool',
                         false);
                 addOption(option);
+		
+		var option:Option = new Option('Tabi',
+                        'Certified tabi extra health classic.',
+                        'tabi',
+                        'bool',
+                        false);
+                addOption(option);
+
+
+		var option:Option = new Option('Framerate',
+                        "How much tabi hp u want",
+                        'tabiMax',
+                        'int',
+                        3);
+                addOption(option);
+                option.minValue = 3;
+                option.maxValue = 300;
+                option.displayFormat = '%v MAX';
 
 		var option:Option = new Option('Score Text Zoom on Hit',
 			"If unchecked, disables the Score text zooming\neverytime you hit a note.",
