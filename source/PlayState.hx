@@ -3488,9 +3488,9 @@ class PlayState extends MusicBeatState
 		rating.velocity.y -= FlxG.random.int(140, 175);
 		rating.velocity.x -= FlxG.random.int(0, 10);
 
-		if (currentTimingShown != null)
+		if (currentTimingShown != null) {
 			remove(currentTimingShown);
-
+		}
 		var msTiming = HelperFunctions.truncateFloat(noteDiff, 3);
 		currentTimingShown = new FlxText(0, 0, 0, "0ms");
 			timeShown = 0;
@@ -3511,9 +3511,9 @@ class PlayState extends MusicBeatState
 		currentTimingShown.size = 20;
 		currentTimingShown.cameras = [camHUD];
 
-		if (currentTimingShown.alpha != 1)
+		if (currentTimingShown.alpha != 1)  {
 				currentTimingShown.alpha = 1;
-
+		}
 				add(currentTimingShown);
 
 		rating.visible = !ClientPrefs.hideHud;
@@ -3618,7 +3618,7 @@ class PlayState extends MusicBeatState
 		// add(coolText);
 
 		FlxTween.tween(rating, {alpha: 0}, 0.2, {
-			startDelay: Conductor.crochet * 0.001
+			startDelay: Conductor.crochet * 0.001,
 			onUpdate: function(tween:FlxTween) {
 					if (currentTimingShown != null)
 					currentTimingShown.alpha -= 0.02;
