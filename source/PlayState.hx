@@ -3488,7 +3488,7 @@ class PlayState extends MusicBeatState
 		rating.velocity.y -= FlxG.random.int(140, 175);
 		rating.velocity.x -= FlxG.random.int(0, 10);
 
-		var msTiming = HelperFunctions.truncateFloat(noteDiff / songMultiplier, 3);
+		var msTiming = HelperFunctions.truncateFloat(noteDiff, 3);
 		currentTimingShown = new FlxText(0, 0, 0, "0ms");
 			timeShown = 0;
 			switch (daRating)
@@ -3510,8 +3510,7 @@ class PlayState extends MusicBeatState
 
 		if (currentTimingShown.alpha != 1)
 				currentTimingShown.alpha = 1;
-
-		if (botPlay )
+//if
 				add(currentTimingShown);
 
 		rating.visible = !ClientPrefs.hideHud;
