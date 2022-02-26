@@ -42,7 +42,7 @@ class ClientPrefs {
 	public static var arrowOpacity:Float = 1;
 //	public static var strumAlpha:Float = 1;
 	public static var opponentArrowOpacity:Float = 1;
-	public static var healthCounter:Bool = true;
+	public static var healthCounter:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var laneOpacity:Float = 1;
 	public static var opponentLaneOpacity:Float = 1;
