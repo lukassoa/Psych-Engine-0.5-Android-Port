@@ -42,7 +42,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Score Type:',
-			"What should the Time Bar display?",
+			"What should the be like?",
                         'scoreType',
                         'string',
                         'Psych Engine',
@@ -50,7 +50,7 @@ class VisualsUISubState extends BaseOptionsMenu
                 addOption(option);
 
 		var option:Option = new Option('Memory Counter',
-			'If unchecked, disables memory counter.',
+			'If unchecked, disables the memory counter.',
                         'memoryCounter',
                         'bool',
                         true);
@@ -65,7 +65,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Health Counter',
-                        'If unchecked, hides the health counter.',
+                        'If checked, enables the health counter.',
                         'healthCounter',
                         'bool',
                         true);
