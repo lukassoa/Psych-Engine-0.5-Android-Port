@@ -3386,6 +3386,8 @@ class PlayState extends MusicBeatState
 
 	public var totalPlayed:Int = 0;
 	public var totalNotesHit:Float = 0.0;
+	var currentTimingShown:FlxText = null;
+	var timeShown = 0;
 	private function popUpScore(note:Note = null):Void
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.ratingOffset);
@@ -3485,6 +3487,33 @@ class PlayState extends MusicBeatState
 		rating.acceleration.y = 550;
 		rating.velocity.y -= FlxG.random.int(140, 175);
 		rating.velocity.x -= FlxG.random.int(0, 10);
+
+		var msTiming = HelperFunctions.truncateFloat(noteDiff / songMultiplier, 3);
+		currentTimingShown = new FlxText(0, 0, 0, "0ms");
+			timeShown = 0;
+			switch (daRating)
+			{
+				case 'shit' | 'bad':
+					currentTimingShown.color = FlxColor.RED;
+				case 'good':
+					currentTimingShown.color = FlxColor.GREEN;
+				case 'sick':
+					currentTimingShown.color = FlxColor.CYAN;
+			}
+
+		currentTimingShown.borderStyle = OUTLINE;
+		currentTimingShown.borderSize = 1;
+		currentTimingShown.borderColor = FlxColor.BLACK;
+		currentTimingShown.text = msTiming + "ms";
+		currentTimingShown.size = 20;
+		currentTimingShown.cameras = [camHUD];
+
+		if (currentTimingShown.alpha != 1)
+				currentTimingShown.alpha = 1;
+
+		if (botPlay )
+				add(currentTimingShown);
+
 		rating.visible = !ClientPrefs.hideHud;
 		rating.x += ClientPrefs.comboOffset[0];
 		rating.y -= ClientPrefs.comboOffset[1];
@@ -3500,8 +3529,15 @@ class PlayState extends MusicBeatState
 		comboSpr.x += ClientPrefs.comboOffset[0];
 		comboSpr.y -= ClientPrefs.comboOffset[1];
 
+		currentTimingShown.screenCenter();
+		currentTimingShown.x = comboSpr.x + 100;
+		currentTimingShown.y = rating.y + 100;
+		currentTimingShown.acceleration.y = 600;
+		currentTimingShown.velocity.y -= 150;
+
 
 		comboSpr.velocity.x += FlxG.random.int(1, 10);
+		currentTimingShown.velocity.x += comboSpr.velocity.x;
 		insert(members.indexOf(strumLineNotes), rating);
 
 		if (!PlayState.isPixelStage)
@@ -3517,6 +3553,7 @@ class PlayState extends MusicBeatState
 			comboSpr.setGraphicSize(Std.int(comboSpr.width * daPixelZoom * 0.85));
 		}
 
+		currentTimingShown.updateHitbox();
 		comboSpr.updateHitbox();
 		rating.updateHitbox();
 
@@ -3587,7 +3624,7 @@ class PlayState extends MusicBeatState
 			{
 				coolText.destroy();
 				comboSpr.destroy();
-
+				currentTimingShown.alpha -= 0.02;
 				rating.destroy();
 			},
 			startDelay: Conductor.crochet * 0.001
