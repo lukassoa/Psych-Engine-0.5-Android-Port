@@ -3622,8 +3622,10 @@ class PlayState extends MusicBeatState
 			onUpdate: function(tween:FlxTween)
 				{
 					if (currentTimingShown != null)
-						currentTimingShown.alpha -= 0.02;
+					{
+					currentTimingShown.alpha -= 0.02;
 					timeShown++;
+					}
 				}
 		});
 
