@@ -3619,13 +3619,10 @@ class PlayState extends MusicBeatState
 
 		FlxTween.tween(rating, {alpha: 0}, 0.2, {
 			startDelay: Conductor.crochet * 0.001
-			onUpdate: function(tween:FlxTween)
-				{
+			onUpdate: function(tween:FlxTween) {
 					if (currentTimingShown != null)
-					{
 					currentTimingShown.alpha -= 0.02;
 					timeShown++;
-					}
 				}
 		});
 
