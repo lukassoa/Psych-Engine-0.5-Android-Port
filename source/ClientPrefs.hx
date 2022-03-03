@@ -18,7 +18,7 @@ class ClientPrefs {
 	public static var playHitSounds:Bool = false;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
-	public static var judgements:Bool = false;
+	public static var judgements:Bool = true;
 	public static var keTimeBar:Bool = false;
 	public static var dynamicCam:Bool = false;
 	public static var lowQuality:Bool = false;

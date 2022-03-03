@@ -97,7 +97,7 @@ class VisualsUISubState extends BaseOptionsMenu
                         'If unchecked, hides judgements.',
                         'judgements',
                         'bool',
-                        false);
+                        true);
                 addOption(option);
 
 		var option:Option = new Option('Dynamic Cam',
