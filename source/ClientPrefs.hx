@@ -18,7 +18,7 @@ class ClientPrefs {
 	public static var playHitSounds:Bool = false;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
-	public static var judgements:Bool = true;
+	public static var judgements:Bool = false;
 	public static var keTimeBar:Bool = false;
 	public static var dynamicCam:Bool = false;
 	public static var lowQuality:Bool = false;
@@ -28,10 +28,10 @@ class ClientPrefs {
 	public static var violence:Bool = true;
 	public static var noAntimash:Bool = false;
 	public static var camZooms:Bool = true;
-	public static var scoreType:String = 'Psych Engine';
+	public static var scoreType:String = 'Kade Engine';
 	public static var hideHud:Bool = false;
 	public static var hideGf:Bool = false;
-	public static var memoryCounter:Bool = true;
+	public static var memoryCounter:Bool = false;
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;

@@ -45,7 +45,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"What should the be like?",
                         'scoreType',
                         'string',
-                        'Psych Engine',
+                        'Kade Engine',
                         ['Psych Engine', 'Kade Engine', 'Disabled']);
                 addOption(option);
 
@@ -53,7 +53,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'If unchecked, disables the memory counter.',
                         'memoryCounter',
                         'bool',
-                        true);
+                        false);
                 addOption(option);
 		option.onChange = onChangeMemoryCounter;
 
@@ -68,7 +68,7 @@ class VisualsUISubState extends BaseOptionsMenu
                         'If checked, enables the health counter.',
                         'healthCounter',
                         'bool',
-                        true);
+                        false);
                 addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
@@ -97,7 +97,7 @@ class VisualsUISubState extends BaseOptionsMenu
                         'If unchecked, hides judgements.',
                         'judgements',
                         'bool',
-                        true);
+                        false);
                 addOption(option);
 
 		var option:Option = new Option('Dynamic Cam',
