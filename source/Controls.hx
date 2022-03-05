@@ -764,7 +764,7 @@ class Controls extends FlxActionSet
 		}
 	}
 
-    #if desktop
+	        #if !android
 	public function bindKeys(control:Control, keys:Array<FlxKey>)
 	{
 		var copyKeys:Array<FlxKey> = keys.copy();
