@@ -56,10 +56,6 @@ import DialogueBoxPsych;
 import sys.FileSystem;
 #end
 
-#if mobileC
-import ui.Mobilecontrols;
-#end
-
 using StringTools;
 
 class PlayState extends MusicBeatState

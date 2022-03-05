@@ -10,10 +10,13 @@ import flixel.input.actions.FlxActionSet;
 import flixel.input.gamepad.FlxGamepadButton;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
+#if android
 import flixel.group.FlxGroup;
-import ui.Hitbox;
-import ui.FlxVirtualPad;
+import android.Hitbox;
+import android.FlxVirtualPad;
 import flixel.ui.FlxButton;
+#end
+
 
 #if (haxe >= "4.0.0")
 enum abstract Action(String) to String from String
@@ -383,7 +386,7 @@ class Controls extends FlxActionSet
 	}
 	#end
 
-		#if android
+	#if android
 	public var trackedinputsUI:Array<FlxActionInput> = [];
 	public var trackedinputsNOTES:Array<FlxActionInput> = [];	
 

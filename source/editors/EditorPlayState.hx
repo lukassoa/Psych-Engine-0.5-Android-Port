@@ -19,8 +19,8 @@ import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import openfl.events.KeyboardEvent;
 import FunkinLua;
-#if mobileC
-import ui.Mobilecontrols;
+#if android
+import android.AndroidControls;
 #end
 
 using StringTools;

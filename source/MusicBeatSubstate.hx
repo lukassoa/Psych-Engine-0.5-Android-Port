@@ -5,10 +5,9 @@ import flixel.FlxG;
 import flixel.FlxSubState;
 import flixel.FlxBasic;
 import flixel.FlxSprite;
-#if mobileC
-import flixel.FlxCamera;
+#if android
 import flixel.input.actions.FlxActionInput;
-import ui.FlxVirtualPad;
+import android.FlxVirtualPad;
 #end
 
 class MusicBeatSubstate extends FlxSubState
