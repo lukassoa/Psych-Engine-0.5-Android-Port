@@ -214,7 +214,7 @@ class TitleState extends MusicBeatState
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		
-		var path = SUtil.getPath() + + "mods/" + Paths.currentModDirectory + "/images/logoBumpin.png";
+		var path = SUtil.getPath() + "mods/" + Paths.currentModDirectory + "/images/logoBumpin.png";
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)){
 			path = SUtil.getPath() + "mods/images/logoBumpin.png";
