@@ -326,7 +326,7 @@ class MenuCharacterEditorState extends MusicBeatState
 	}
 
 	function loadCharacter() {
-                var path:String = Main.getDataPath() + "yourthings/yourmenucharacter.json";
+                var path:String = SUtil.getPath() + "yourthings/yourmenucharacter.json";
 		if (FileSystem.exists(path))
                 {
                     LoadCheck();
@@ -335,7 +335,7 @@ class MenuCharacterEditorState extends MusicBeatState
 
 	function LoadCheck():Void
 	{
-		var path:String = Main.getDataPath() + "yourthings/yourmenucharacter.json";
+		var path:String = SUtil.getPath() + "yourthings/yourmenucharacter.json";
 		if (FileSystem.exists(path))
                 {
 			var rawJson:String = File.getContent(path);

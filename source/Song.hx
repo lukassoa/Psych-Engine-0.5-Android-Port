@@ -102,7 +102,7 @@ class Song
 		#end
 
 		if(rawJson == null) {
-			rawJson = File.getContent(Main.getDataPath() + Paths.json(formattedFolder + '/' + formattedSong)).trim();
+			rawJson = File.getContent(SUtil.getPath() + Paths.json(formattedFolder + '/' + formattedSong)).trim();
 		}
 
 		while (!rawJson.endsWith("}"))

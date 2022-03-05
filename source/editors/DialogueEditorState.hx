@@ -433,7 +433,7 @@ class DialogueEditorState extends MusicBeatState
 	}
 
 	function loadDialogue() {
-		var path:String = Main.getDataPath() + "yourthings/yourdialogue.json";
+		var path:String = SUtil.getPath() + "yourthings/yourdialogue.json";
 		if (FileSystem.exists(path))
                 {
                     LoadCheck();
@@ -442,7 +442,7 @@ class DialogueEditorState extends MusicBeatState
 
 	function LoadCheck():Void
 	{
-		var path:String = Main.getDataPath() + "yourthings/yourdialogue.json";
+		var path:String = SUtil.getPath() + "yourthings/yourdialogue.json";
 		if (FileSystem.exists(path))
                 {
 			var rawJson:String = File.getContent(path);

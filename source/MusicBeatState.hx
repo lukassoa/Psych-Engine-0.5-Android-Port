@@ -13,9 +13,10 @@ import flixel.util.FlxColor;
 import flixel.util.FlxGradient;
 import flixel.FlxState;
 import flixel.FlxBasic;
-#if mobileC
+#if android
 import flixel.input.actions.FlxActionInput;
-import ui.FlxVirtualPad;
+import android.AndroidControls.AndroidControls;
+import android.FlxVirtualPad;
 #end
 
 class MusicBeatState extends FlxUIState
@@ -30,13 +31,14 @@ class MusicBeatState extends FlxUIState
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
-	#if mobileC
+	#if android
 	var _virtualpad:FlxVirtualPad;
-
+	var androidc:AndroidControls;
 	var trackedinputsUI:Array<FlxActionInput> = [];
-	var trackedinputsNOTES:Array<FlxActionInput> = [];	
-
-	// adding virtualpad to state
+	var trackedinputsNOTES:Array<FlxActionInput> = [];
+	#end
+	
+	#if android
 	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
 		_virtualpad = new FlxVirtualPad(DPad, Action);
 		_virtualpad.alpha = 0.75;
@@ -45,16 +47,56 @@ class MusicBeatState extends FlxUIState
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
 	}
+	#else
+	public function addVirtualPad(?DPad, ?Action)
+	#end
+
+	public function addAndroidControls() {
+		#if android
+                androidc = new AndroidControls();
+
+		switch (androidc.mode)
+		{
+			case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
+				controls.setVirtualPadNOTES(androidc._virtualPad, FULL, NONE);
+			case DUO:
+				controls.setVirtualPadNOTES(androidc._virtualPad, DUO, NONE);
+			case HITBOX:
+				controls.setHitBox(androidc._hitbox);
+			default:
+		}
+
+		trackedinputsNOTES = controls.trackedinputsNOTES;
+		controls.trackedinputsNOTES = [];
+
+		var camcontrol = new flixel.FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		androidc.cameras = [camcontrol];
+
+		androidc.visible = false;
+
+		add(androidc);
+		#end
+	}
+
+        public function addPadCamera() {
+		#if android
+		var camcontrol = new flixel.FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_virtualpad.cameras = [camcontrol];
+		#end
+	}
 	
 	override function destroy() {
+		#if android
 		controls.removeFlxInput(trackedinputsUI);
-		controls.removeFlxInput(trackedinputsNOTES);		
+		controls.removeFlxInput(trackedinputsNOTES);	
+		#end	
 		
 		super.destroy();
 	}
-	#else
-	public function addVirtualPad(?DPad, ?Action){};
-	#end	
 
 	override function create() {
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;

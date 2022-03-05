@@ -453,7 +453,7 @@ class WeekEditorState extends MusicBeatState
 	}
 
 	public static function loadWeek() {
-		var path:String = Main.getDataPath() + "yourthings/yourweek.json";
+		var path:String = SUtil.getPath() + "yourthings/yourweek.json";
 		if (FileSystem.exists(path))
                 {
                     LoadCheck();
@@ -464,7 +464,7 @@ class WeekEditorState extends MusicBeatState
 	public static var loadError:Bool = false;
 	private static function LoadCheck():Void
 	{
-	        var path:String = Main.getDataPath() + "yourthings/yourweek.json";
+	        var path:String = SUtil.getPath() + "yourthings/yourweek.json";
 		if (FileSystem.exists(path))
                 {
 			var rawJson:String = File.getContent(path);
