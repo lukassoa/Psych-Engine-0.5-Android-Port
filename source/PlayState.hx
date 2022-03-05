@@ -1550,6 +1550,9 @@ class PlayState extends MusicBeatState
 
 	public function startCountdown():Void
 	{
+		#if android
+                        androidc.visible = true;
+		#end
 		if(startedCountdown) {
 			callOnLuas('onStartCountdown', []);
 			return;
