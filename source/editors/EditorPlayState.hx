@@ -44,9 +44,7 @@ class EditorPlayState extends MusicBeatState
 	var startOffset:Float = 0;
 	var startPos:Float = 0;
 
-	#if mobileC
-	var mcontrols:Mobilecontrols; 
-	#end
+	
 
 	public function new(startPos:Float) {
 		this.startPos = startPos;
@@ -159,25 +157,10 @@ class EditorPlayState extends MusicBeatState
 		add(tipText);
 		FlxG.mouse.visible = false;
 
-		#if mobileC
-			mcontrols = new Mobilecontrols();
-			switch (mcontrols.mode)
-			{
-				case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
-					controls.setVirtualPadNOTES(mcontrols._virtualPad, FULL, NONE);
-				case HITBOX:
-					controls.setHitBoxNOTES(mcontrols._hitbox);
-				default:
-			}
-			trackedinputsNOTES = controls.trackedinputsNOTES;
-			controls.trackedinputsNOTES = [];
-
-			add(mcontrols);
-
-			#if mobileC
-		    addVirtualPad(NONE, B);
-		    #end
-		#end	
+		#if android
+		addVirtualPad(NONE, B);
+		#end
+			
 
 		//sayGo();
 		if(!ClientPrefs.controllerMode)
@@ -342,7 +325,7 @@ class EditorPlayState extends MusicBeatState
 	}
 
 	override function update(elapsed:Float) {
-		if (FlxG.keys.justPressed.ESCAPE #if mobileC || _virtualpad.buttonB.justPressed #end)
+		if (FlxG.keys.justPressed.ESCAPE #if android || _virtualpad.buttonB.justPressed #end)
 		{
 			FlxG.sound.music.pause();
 			vocals.pause();

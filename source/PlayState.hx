@@ -249,10 +249,6 @@ class PlayState extends MusicBeatState
 	var storyDifficultyText:String = "";
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
-	#end
-
-	#if mobileC
-	var mcontrols:Mobilecontrols; 
 	#end	
 
 	//Achievement shit
@@ -1554,9 +1550,7 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
 		if(ret != FunkinLua.Function_Stop) {
-			#if mobileC
-		    mcontrols.visible = true;
-		    #end
+			
 			generateStaticArrows(0);
 			generateStaticArrows(1);
 

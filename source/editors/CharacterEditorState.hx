@@ -197,13 +197,9 @@ class CharacterEditorState extends MusicBeatState
 		FlxG.mouse.visible = true;
 		reloadCharacterOptions();
 
-		#if mobileC
-		addVirtualPad(FULL, A_B_X_Y_C_D);
-
-		var camcontrol = new FlxCamera();
-		FlxG.cameras.add(camcontrol);
-		camcontrol.bgColor.alpha = 0;
-		_virtualpad.cameras = [camcontrol];
+		#if android
+		addVirtualPad(FULL, A_B_C_X_Y_Z:);
+		addPadCamera()
 		#end
 
 		super.create();
@@ -1133,20 +1129,20 @@ class CharacterEditorState extends MusicBeatState
 				return;
 			}
 			
-			if (FlxG.keys.justPressed.R #if mobileC || _virtualpad.buttonD.justPressed #end) {
+			if (FlxG.keys.justPressed.R #if mobileC || _virtualpad.buttonZ.justPressed #end) {
 				FlxG.camera.zoom = 1;
 			}
 
-			if ((FlxG.keys.pressed.E #if mobileC || _virtualpad.buttonX.justPressed #end) && FlxG.camera.zoom < 3) {
+			if ((FlxG.keys.pressed.E #if android || _virtualpad.buttonC.justPressed #end) && FlxG.camera.zoom < 3) {
 				FlxG.camera.zoom += elapsed * FlxG.camera.zoom;
 				if(FlxG.camera.zoom > 3) FlxG.camera.zoom = 3;
 			}
-			if ((FlxG.keys.pressed.Q #if mobileC || _virtualpad.buttonY.justPressed #end) && FlxG.camera.zoom > 0.1) {
+			if ((FlxG.keys.pressed.Q #if android || _virtualpad.buttonY.justPressed #end) && FlxG.camera.zoom > 0.1) {
 				FlxG.camera.zoom -= elapsed * FlxG.camera.zoom;
 				if(FlxG.camera.zoom < 0.1) FlxG.camera.zoom = 0.1;
 			}
 
-			if ((FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L #if mobileC || _virtualpad.buttonUp.justPressed #end #if mobileC || _virtualpad.buttonDown.justPressed #end #if mobileC || _virtualpad.buttonLeft.justPressed #end #if mobileC || _virtualpad.buttonRight.justPressed #end) #if mobileC && _virtualpad.buttonC.justPressed #end)
+			if ((FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L #if android || _virtualpad.buttonUp.justPressed #end #if android || _virtualpad.buttonDown.justPressed #end #if android || _virtualpad.buttonLeft.justPressed #end #if android || _virtualpad.buttonRight.justPressed #end) #if android && _virtualpad.buttonC.justPressed #end)
 			{
 				var addToCam:Float = 500 * elapsed;
 				if (FlxG.keys.pressed.SHIFT)
