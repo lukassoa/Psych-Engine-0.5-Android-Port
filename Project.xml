@@ -50,6 +50,7 @@
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
 	<define name="MODS_ALLOWED" if="desktop || mobile" />
 	<define name="LUA_ALLOWED" if="desktop || mobile" />
+	<define name="VIDEO_ALLOWED" if="desktop || mobile" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="PSYCH_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS ON TITLE SCREEN -->
 
