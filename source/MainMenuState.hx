@@ -131,7 +131,8 @@ class MainMenuState extends MusicBeatState
 		Char1 = new Character(800, -120, 'bf',true);
 		Char1.setGraphicSize(std.int(char1.width * 0.8));
 		add(Char1);
-		Char1.visible = true
+		Char1.visible = true;
+
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
