@@ -3981,6 +3981,8 @@ class PlayState extends MusicBeatState
 				popUpScore(note);
 				if(combo > 9999) combo = 9999;
 			}
+
+			if (health != 2)
 			health += note.hitHealth * healthGain;
 
 			if(!note.noAnimation) {
