@@ -129,7 +129,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.follow(camFollowPos, null, 1);
 
 		Char1 = new Character(800, -120, 'bf',true);
-		Char1.setGraphicSize(std.int(char1.width * 0.8));
+		Char1.setGraphicSize(Std.int(char1.width * 0.8));
 		add(Char1);
 		Char1.visible = true;
 
@@ -190,6 +190,9 @@ class MainMenuState extends MusicBeatState
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
+		
+		Char1.dance();
+		Char1.updateHitbox();
 
 		if (!selectedSomethin)
 		{
