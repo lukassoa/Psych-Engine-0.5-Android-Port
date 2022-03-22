@@ -23,6 +23,7 @@ import flixel.FlxSprite;
 import openfl.display.BlendMode;
 import openfl.utils.Assets;
 import flixel.math.FlxMath;
+import Shaders;
 #if sys
 import sys.FileSystem;
 import sys.io.File;
