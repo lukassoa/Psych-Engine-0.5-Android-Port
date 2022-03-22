@@ -4086,11 +4086,9 @@ class PlayState extends MusicBeatState
 				if(combo > 9999) combo = 9999;
 			}
 
-			if (health != 2 && !ClientPrefs.tabi) 
+			if (health != 2) 
 			health += note.hitHealth * healthGain;
 			
-			if (health != ClientPrefs.tabiMax)
-			health += note.hitHealth * healthGain;
 
 			if(!note.noAnimation) {
 				var daAlt = '';
