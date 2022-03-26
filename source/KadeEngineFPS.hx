@@ -95,7 +95,7 @@ class KadeEngineFPS extends TextField
 				(cast(Lib.current.getChildAt(0), Main)).changeFPSColor(array[currentColor]);
 				currentColor++;
 				skippedFrames++;
-				if (skippedFrames > (FlxG.save.data.fpsCap / 3))
+				if (skippedFrames > (ClientPrefs.framerate / 3))
 					skippedFrames = 0;
 			}
 
@@ -126,7 +126,7 @@ class KadeEngineFPS extends TextField
 			text += "\nstageDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE);
 			text += "\nstage3DDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE3D);
 			#end
-			text += "/n";
+			text += "/nl";
 		}
 
 		visible = true;
