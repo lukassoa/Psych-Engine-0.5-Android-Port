@@ -111,7 +111,7 @@ class KadeEngineFPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "FPS: " + currentFPS
+			text = "FPS: " + currentFPS;
 			
 		if (ClientPrefs.memoryCounter) {
 			var memoryMegas:Float = 0;
