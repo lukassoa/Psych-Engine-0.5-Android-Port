@@ -126,7 +126,7 @@ class KadeEngineFPS extends TextField
 			text += "\nstageDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE);
 			text += "\nstage3DDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE3D);
 			#end
-			text += "/nl";
+			text += "\n";
 		}
 
 		visible = true;
