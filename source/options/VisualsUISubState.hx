@@ -186,7 +186,7 @@ class VisualsUISubState extends BaseOptionsMenu
                 option.decimals = 1;
                 addOption(option);
 
-		var option:Option = new Option('FPS Counter',
+		var option:Option = new Option('Rainbow FPS',
                         'If checked, makes the FPS Counter rainbow.',
                         'fpsRain',
 			'bool',
