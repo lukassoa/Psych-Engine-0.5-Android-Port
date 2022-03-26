@@ -55,7 +55,6 @@ class VisualsUISubState extends BaseOptionsMenu
                         'bool',
                         false);
                 addOption(option);
-		option.onChange = onChangeMemoryCounter;
 
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
@@ -188,6 +187,13 @@ class VisualsUISubState extends BaseOptionsMenu
                 addOption(option);
 
 		var option:Option = new Option('FPS Counter',
+                        'If checked, makes the FPS Counter rainbow.',
+                        'fpsRain',
+			'bool',
+                        false);
+                addOption(option);
+
+		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
 			'showFPS',
 			'bool',
@@ -203,10 +209,4 @@ class VisualsUISubState extends BaseOptionsMenu
 		if(Main.fpsVar != null)
 			Main.fpsVar.visible = ClientPrefs.showFPS;
 	}
-
-	function onChangeMemoryCounter()
-        {
-                if(Main.memoryCounter != null)
-                        Main.memoryCounter.visible = ClientPrefs.memoryCounter;
-        }	
 }

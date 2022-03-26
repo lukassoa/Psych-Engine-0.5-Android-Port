@@ -14,6 +14,7 @@ class ClientPrefs {
 	public static var maxOpt:Bool = false;
 	public static var tabi:Bool = false;
 	public static var tabiMax:Int = 3;
+	public static var fpsRain:Bool = false;
 	public static var iconBoping:Bool = false;
 	public static var playHitSounds:Bool = false;
 	public static var globalAntialiasing:Bool = true;
@@ -124,6 +125,7 @@ class ClientPrefs {
 		FlxG.save.data.tabi = tabi;
 		FlxG.save.data.tabiMax = tabiMax;
 		FlxG.save.data.judgements = judgements;
+		FlxG.save.data.fpsRain = fpsRain;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
@@ -195,6 +197,9 @@ class ClientPrefs {
 		if(FlxG.save.data.tabiMax != null) {
                         tabiMax = FlxG.save.data.tabiMax;
                 }
+		if(FlxG.save.data.fpsRain != null) {
+                        fpsRain = FlxG.save.data.fpsRain;
+		}
 		if(FlxG.save.data.showFPS != null) {
 			showFPS = FlxG.save.data.showFPS;
 			if(Main.fpsVar != null) {
