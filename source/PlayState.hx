@@ -153,6 +153,7 @@ class PlayState extends MusicBeatState
 
 	public var gfSpeed:Int = 1;
 	public var health:Float = 1;
+	public var shownHealth:Float = 1;
 	public var combo:Int = 0;
 
 	private var healthBarBG:AttachedSprite;
@@ -927,21 +928,18 @@ class PlayState extends MusicBeatState
 		add(strumLineNotes);
 		add(grpNoteSplashes);
 
-		laneunderlayOpponent = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
+		laneunderlayOpponent = new FlxSprite(0, 0).makeGraphic(1,1);
 		laneunderlayOpponent.alpha = ClientPrefs.opponentLaneOpacity;
 		laneunderlayOpponent.color = FlxColor.BLACK;
 		laneunderlayOpponent.scrollFactor.set();
 
-		laneunderlay = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
+		laneunderlay = new FlxSprite(0, 0).makeGraphic(1,1);
 		laneunderlay.alpha = ClientPrefs.laneOpacity;
 		laneunderlay.color = FlxColor.BLACK;
 		laneunderlay.scrollFactor.set();
 /*
-		if (!ClientPrefs.middleScroll)
-			{
-				add(laneunderlayOpponent);
-			}
-		add(laneunderlay); //disabled for now L
+		add(laneunderlayOpponent
+		add(laneunderlay); 
 */		
 
 		if(ClientPrefs.timeBarType == 'Song Name')
@@ -1039,7 +1037,7 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.downScroll) healthBarBG.y = 0.11 * FlxG.height;
 
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
-			'health', 0, 2);
+			'shownHealth', 0, 2);
 		healthBar.scrollFactor.set();
 		// healthBar
 		healthBar.visible = !ClientPrefs.hideHud;
@@ -1670,12 +1668,6 @@ class PlayState extends MusicBeatState
 			generateStaticArrows(0);
 			generateStaticArrows(1);
 
-			laneunderlay.x = playerStrums.members[0].x - 25;
-			laneunderlayOpponent.x = opponentStrums.members[0].x - 25;
-
-			laneunderlay.screenCenter(Y);
-			laneunderlayOpponent.screenCenter(Y);
-
 			for (i in 0...playerStrums.length) {
 				setOnLuas('defaultPlayerStrumX' + i, playerStrums.members[i].x);
 				setOnLuas('defaultPlayerStrumY' + i, playerStrums.members[i].y);
@@ -2058,6 +2050,10 @@ class PlayState extends MusicBeatState
 
 	private function generateStaticArrows(player:Int):Void
 	{
+		var underlay = laneunderlay;
+		if (player == 0) {
+		underlay = laneumUnderlayOpponent;
+		}
 		for (i in 0...4)
 		{
 			// FlxG.log.add(i);
@@ -2095,6 +2091,21 @@ class PlayState extends MusicBeatState
 			strumLineNotes.add(babyArrow);
 			babyArrow.postAddedToGroup();
 		}
+	resetUnderlay(underlay, strums);
+	}
+
+	function resetUnderlay(underlay:FlxSprite, strums:FlxTypedGroup<StrumNote>) {
+		var fullWidth = 0.0;
+		for (i in 0...strums.members.length) {
+			if (i == strums.members.length - 1) {
+				fullWidth += strums.members[i].width;
+			} else {
+				fullWidth += strums.members[i].swagWidth;
+			}
+		}
+		underlay.makeGraphic(Math.ceil(fullWidth), FlxG.height * 2, FlxColor.BLACK);
+		underlay.x = strums.members[0].x;
+		underlay.visible = true;
 	}
 
 	override function openSubState(SubState:FlxSubState)
@@ -2387,6 +2398,11 @@ class PlayState extends MusicBeatState
 			healthCounter.text = 'Health: ' + Math.round(health * 50) + '%'  ;
 		}
 
+		if (playerStrums.length > 0 && opponentStrums.length > 0) {
+			laneunderlayPlayer.x = playerStrums.members[0].x;
+			laneunderlayOpponent.x = opponentStrums.members[0].x;
+		}
+
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
@@ -2438,6 +2454,8 @@ class PlayState extends MusicBeatState
 
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
+
+		shownHealth = FlxMath.lerp(shownHealth, health, CoolUtil.boundTo(elapsed * 7, 0, 1));
 
 		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
 		iconP1.scale.set(mult, mult);
