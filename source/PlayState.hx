@@ -2052,10 +2052,10 @@ class PlayState extends MusicBeatState
 	private function generateStaticArrows(player:Int):Void
 	{
 		var underlay = laneunderlay;
-		strums = playerStrums;
+		var strums = playerStrums;
 		if (player == 0) {
 		strums = opponentStrums;
-		underlay = laneuUnderlayOpponent;
+		underlay = laneunderlayOpponent;
 		}
 		for (i in 0...4)
 		{
@@ -2090,7 +2090,6 @@ class PlayState extends MusicBeatState
 				}
 				opponentStrums.add(babyArrow);
 			}
-
 			strumLineNotes.add(babyArrow);
 			babyArrow.postAddedToGroup();
 		}
