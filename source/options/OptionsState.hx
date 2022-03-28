@@ -34,6 +34,13 @@ class OptionsState extends MusicBeatState
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 
+	public function new(?goToPlayState:Bool)
+        {
+                super();
+                if (goToPlayState != null)
+                        OptionsState.goToPlayState = goToPlayState;
+        }
+
 	function openSelectedSubstate(label:String) {
 		switch(label) {
 			case 'Note Colors':
@@ -111,6 +118,11 @@ class OptionsState extends MusicBeatState
 
 		if (controls.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
+			if (goToPlayState) {
+                                StageData.loadDirectory(PlayState.SONG);
+                                goToPlayState = false;
+                                LoadingState.loadAndSwitchState(new PlayState(), true);
+                        } else {
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
