@@ -105,8 +105,4 @@ class Main extends Sprite
         {
                 fpsVar.textColor = color;
         }
-
-	public static function adjustFPS(num:Float):Float{
-		return FlxG.elapsed / (1/60) * num;
-	}
 }
