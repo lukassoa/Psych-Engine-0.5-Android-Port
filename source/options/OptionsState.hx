@@ -124,6 +124,7 @@ class OptionsState extends MusicBeatState
                                 LoadingState.loadAndSwitchState(new PlayState(), true);
                         } else {
 			MusicBeatState.switchState(new MainMenuState());
+			}
 		}
 
 		if (controls.ACCEPT) {
