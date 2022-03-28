@@ -938,7 +938,7 @@ class PlayState extends MusicBeatState
 		laneunderlay.color = FlxColor.BLACK;
 		laneunderlay.scrollFactor.set();
 
-		add(laneunderlayOpponent)
+		add(laneunderlayOpponent);
 		add(laneunderlay); 
 		
 
