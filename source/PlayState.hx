@@ -937,10 +937,10 @@ class PlayState extends MusicBeatState
 		laneunderlay.alpha = ClientPrefs.laneOpacity;
 		laneunderlay.color = FlxColor.BLACK;
 		laneunderlay.scrollFactor.set();
-/*
-		add(laneunderlayOpponent
+
+		add(laneunderlayOpponent)
 		add(laneunderlay); 
-*/		
+		
 
 		if(ClientPrefs.timeBarType == 'Song Name')
 		{
@@ -2455,7 +2455,7 @@ class PlayState extends MusicBeatState
 
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
-		shownHealth =  FlxMath.lerp(shownHealth, health, CoolUtil.boundTo(elapsed * 30, 0, 1));
+		shownHealth =  FlxMath.lerp(shownHealth, health, CoolUtil.boundTo(elapsed * 7, 0, 1));
 
 		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
 		iconP1.scale.set(mult, mult);
