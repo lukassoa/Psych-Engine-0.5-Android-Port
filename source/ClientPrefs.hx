@@ -13,6 +13,7 @@ class ClientPrefs {
 	public static var flashing:Bool = true;
 	public static var maxOpt:Bool = false;
 	public static var tabi:Bool = false;
+	public static var fpsCounterType:String = 'PE';
 	public static var tabiMax:Int = 3;
 	public static var fpsRain:Bool = false;
 	public static var iconBoping:Bool = false;
@@ -31,6 +32,7 @@ class ClientPrefs {
 	public static var camZooms:Bool = true;
 	public static var scoreType:String = 'Kade Engine';
 	public static var hideHud:Bool = false;
+	public static var smoothness:Int = 2;
 	public static var hideGf:Bool = false;
 	public static var memoryCounter:Bool = false;
 	public static var noteOffset:Int = 0;
@@ -130,6 +132,7 @@ class ClientPrefs {
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
+		FlxG.save.data.smoothness = smoothness;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.noAntimash = noAntimash;
 		FlxG.save.data.scoreZoom = scoreZoom;
@@ -137,6 +140,7 @@ class ClientPrefs {
 		FlxG.save.data.keTimeBar = keTimeBar;
 		FlxG.save.data.iconBoping = iconBoping;
 		FlxG.save.data.scoreType = scoreType;
+		FlxG.save.data.fpsCounterType = fpsCounterType;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.memoryCounter = memoryCounter;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
@@ -182,6 +186,9 @@ class ClientPrefs {
 		if(FlxG.save.data.iconBoping != null) {
                         iconBoping = FlxG.save.data.iconBoping;
 		}
+		if(FlxG.save.data.fpsCounterType != null) {
+                        fpsCounterType = FlxG.save.data.fpsCounterType;
+                }
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
 		}
@@ -193,6 +200,9 @@ class ClientPrefs {
                 }
 		if(FlxG.save.data.tabi != null) {
                         tabi = FlxG.save.data.tabi;
+                }
+		if(FlxG.save.data.smoothness != null) {
+                        smoothness = FlxG.save.data.smoothness;
                 }
 		if(FlxG.save.data.tabiMax != null) {
                         tabiMax = FlxG.save.data.tabiMax;

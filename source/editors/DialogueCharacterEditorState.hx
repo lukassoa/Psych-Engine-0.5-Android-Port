@@ -142,7 +142,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 		FlxG.mouse.visible = true;
 		updateCharTypeBox();
 
-		#if mobileC
+		#if android
 		addVirtualPad(FULL, NONE);
 		#end
 		
@@ -551,17 +551,17 @@ class DialogueCharacterEditorState extends MusicBeatState
 				var animShit:DialogueAnimArray = character.dialogueAnimations.get(curSelectedAnim);
 
 				var controlArrayLoop:Array<Bool> = [
-					FlxG.keys.justPressed.A #if mobileC || _virtualpad.buttonLeft.justPressed #end,
-					FlxG.keys.justPressed.W #if mobileC || _virtualpad.buttonUp.justPressed #end, 
-					FlxG.keys.justPressed.D #if mobileC || _virtualpad.buttonRight.justPressed #end, 
-					FlxG.keys.justPressed.S #if mobileC || _virtualpad.buttonDown.justPressed #end
+					FlxG.keys.justPressed.A #if android || _virtualpad.buttonLeft.justPressed #end,
+					FlxG.keys.justPressed.W #if android || _virtualpad.buttonUp.justPressed #end, 
+					FlxG.keys.justPressed.D #if android || _virtualpad.buttonRight.justPressed #end, 
+					FlxG.keys.justPressed.S #if android || _virtualpad.buttonDown.justPressed #end
 				];
 
 				var controlArrayIdle:Array<Bool> = [
-					FlxG.keys.justPressed.LEFT #if mobileC || _virtualpad.buttonLeft.justPressed #end,
-					FlxG.keys.justPressed.UP #if mobileC || _virtualpad.buttonUp.justPressed #end,					
-					FlxG.keys.justPressed.RIGHT #if mobileC || _virtualpad.buttonRight.justPressed #end,
-					FlxG.keys.justPressed.DOWN #if mobileC || _virtualpad.buttonDown.justPressed #end
+					FlxG.keys.justPressed.LEFT #if android || _virtualpad.buttonLeft.justPressed #end,
+					FlxG.keys.justPressed.UP #if android || _virtualpad.buttonUp.justPressed #end,					
+					FlxG.keys.justPressed.RIGHT #if android || _virtualpad.buttonRight.justPressed #end,
+					FlxG.keys.justPressed.DOWN #if android || _virtualpad.buttonDown.justPressed #end
 				];							
 
 				for (i in 0...controlArrayLoop.length) {

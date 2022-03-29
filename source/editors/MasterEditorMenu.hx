@@ -80,7 +80,7 @@ class MasterEditorMenu extends MusicBeatState
 		#end
 		changeSelection();
 
-		#if mobileC
+		#if android
         addVirtualPad(FULL, A_B);
         #end
         

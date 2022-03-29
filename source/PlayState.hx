@@ -180,10 +180,10 @@ class PlayState extends MusicBeatState
 	public var instakillOnMiss:Bool = false;
 	public var cpuControlled:Bool = false;
 	public var practiceMode:Bool = false;
-	//lane underlay stuff
+/*	//lane underlay stuff
 	public var laneunderlay:FlxSprite;
 	public var laneunderlayOpponent:FlxSprite;
-
+/*
 
 	var botplaySine:Float = 0;
 	var botplayTxt:FlxText;
@@ -927,7 +927,7 @@ class PlayState extends MusicBeatState
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
 		add(grpNoteSplashes);
-
+/*
 		laneunderlayOpponent = new FlxSprite(0, 0).makeGraphic(1,1);
 		laneunderlayOpponent.alpha = ClientPrefs.opponentLaneOpacity;
 		laneunderlayOpponent.color = FlxColor.BLACK;
@@ -939,8 +939,8 @@ class PlayState extends MusicBeatState
 		laneunderlay.scrollFactor.set();
 
 		add(laneunderlayOpponent);
-		add(laneunderlay); 
-		
+		add(laneunderlay); //not working
+/*		
 
 		if(ClientPrefs.timeBarType == 'Song Name')
 		{
@@ -1080,12 +1080,10 @@ class PlayState extends MusicBeatState
                 healthCounter.visible = ClientPrefs.healthCounter;
                 if(ClientPrefs.healthCounter) { add(healthCounter); }
 
-		if (!ClientPrefs.noAntimash) {
 			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() , 16);
-		}
-		else if (ClientPrefs.noAntimash) {
-			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() + " | no Antimash! " , 16); 
-		}
+			if (ClientPrefs.noAntimash) {
+			versionTxt.Text += " | no Antimash! " 
+			}
 			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			versionTxt.scrollFactor.set();
 			add(versionTxt);
@@ -2051,12 +2049,6 @@ class PlayState extends MusicBeatState
 
 	private function generateStaticArrows(player:Int):Void
 	{
-		var underlay = laneunderlay;
-		var strums = playerStrums;
-		if (player == 0) {
-		strums = opponentStrums;
-		underlay = laneunderlayOpponent;
-		}
 		for (i in 0...4)
 		{
 			// FlxG.log.add(i);
@@ -2093,21 +2085,6 @@ class PlayState extends MusicBeatState
 			strumLineNotes.add(babyArrow);
 			babyArrow.postAddedToGroup();
 		}
-	resetUnderlay(underlay, strums);
-	}
-
-	function resetUnderlay(underlay:FlxSprite, strums:FlxTypedGroup<StrumNote>) {
-		var fullWidth = 0.0;
-		for (i in 0...strums.members.length) {
-			if (i == strums.members.length - 1) {
-				fullWidth += strums.members[i].width;
-			} else {
-				fullWidth += strums.members[i].swagWidth;
-			}
-		}
-		underlay.makeGraphic(Math.ceil(fullWidth), FlxG.height * 2, FlxColor.BLACK);
-		underlay.x = strums.members[0].x;
-		underlay.visible = true;
 	}
 
 	override function openSubState(SubState:FlxSubState)
@@ -2471,11 +2448,8 @@ class PlayState extends MusicBeatState
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
 
-		if (!ClientPrefs.tabi)
+		if (ClientPrefs.tabi)
 		{
-		if (health > 2)
-			health = 2;
-		} else {
 		var p2ToUse:Float = healthBar.x + (healthBar.width * (FlxMath.remapToRange((health / 2 * 100), 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
 		if (iconP2.x - iconP2.width / 2 < healthBar.x && iconP2.x > p2ToUse)
 		{
@@ -2487,21 +2461,18 @@ class PlayState extends MusicBeatState
 		}
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange((health / 2 * 100), 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = p2ToUse;
+		}
 		if (health > ClientPrefs.tabiMax)
 			health = ClientPrefs.tabiMax;
-		}
-
+		
 		if (healthBar.percent < 20) {
 			scoreTxt.color = CoolUtil.smoothColorChange(scoreTxt.color, FlxColor.fromRGB(255, 64, 64), 0.3);
 			iconP1.animation.curAnim.curFrame = 1;
 			}
-
 		else if (healthBar.percent > 80) {
 			scoreTxt.color = CoolUtil.smoothColorChange(scoreTxt.color, FlxColor.fromRGB(100, 255, 100), 0.3);
 			iconP2.animation.curAnim.curFrame = 1;
-			}
-		else {
-			
+		} else {	
 			scoreTxt.color = CoolUtil.smoothColorChange(scoreTxt.color, FlxColor.fromRGB(255, 255, 255), 0.3);
 			iconP1.animation.curAnim.curFrame = 0;
 			iconP2.animation.curAnim.curFrame = 0;
@@ -3605,6 +3576,8 @@ class PlayState extends MusicBeatState
 				case 'sick':
 					currentTimingShown.color = FlxColor.CYAN;
 			}
+			if (cpuControlled)
+				currentTimingShown.color = FlxColor.ORANGE;
 
 		currentTimingShown.borderStyle = OUTLINE;
 		currentTimingShown.borderSize = 1;

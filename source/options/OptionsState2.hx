@@ -29,35 +29,21 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Mobile Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
+	var options:Array<String> = ['Graphics', 'UI', 'Gameplay', 'Visuals'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
-	static var goToPlayState:Bool = false;
-
-	public function new(?goToPlayState:Bool)
-        {
-                super();
-                if (goToPlayState != null)
-                        OptionsState.goToPlayState = goToPlayState;
-        }
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-			case 'Note Colors':
-				openSubState(new options.NotesSubState());
-			case 'Controls':
-				openSubState(new options.ControlsSubState());
 			case 'Graphics':
-				openSubState(new options.GraphicsSettingsSubState());
-			case 'Visuals and UI':
-				openSubState(new options.VisualsUISubState());
+				openSubState(new options.reGraphicsSettingsSubState());
+			case 'Visuals':
+				openSubState(new options.reVisualsSubState());
 			case 'Gameplay':
-				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo':
-				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
-			case 'Mobile Controls':
-				MusicBeatState.switchState(new android.CastomAndroidControls());
+				openSubState(new options.reGameplaySettingsSubState());
+			case 'UI':
+				openSubState(new options.reUISubState());
 		}
 	}
 
@@ -94,8 +80,8 @@ class OptionsState extends MusicBeatState
 		selectorRight = new Alphabet(0, 0, '<', true, false);
 		add(selectorRight);
 
-		selectorRight = new Alphabet(0, 0, '>', true, false);
-		selectorRight.x += 800;
+		selectorNext = new Alphabet(0, 0, '<', true, false);
+		selectorNext.x += 100;
 		add(selectorRight);
 
 		changeSelection();
@@ -127,13 +113,7 @@ class OptionsState extends MusicBeatState
 
 		if (controls.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if (goToPlayState) {
-                                StageData.loadDirectory(PlayState.SONG);
-                                goToPlayState = false;
-                                LoadingState.loadAndSwitchState(new PlayState(), true);
-                        } else {
 			MusicBeatState.switchState(new MainMenuState());
-			}
 		}
 
 		if (controls.ACCEPT) {

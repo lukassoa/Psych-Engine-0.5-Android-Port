@@ -54,9 +54,6 @@
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="PSYCH_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS ON TITLE SCREEN -->
 
-	<!-- MOBILE SHIT -->
-	<define name="mobileC" if="mobile"/>
-
 	<!-- DONT ENABLE THIS -->
 	<define name="CHECK_FOR_UPDATES" if="desktop officialBuild"/>
 
