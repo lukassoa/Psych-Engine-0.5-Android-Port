@@ -38,13 +38,13 @@ class OptionsState2 extends MusicBeatState
 	function openSelectedSubstate(label:String) {
 		switch(label) {
 			case 'Graphics':
-				openSubState(new options.reGraphicsSettingsSubState());
+				openSubState(new options.ReGraphicsSettingsSubState());
 			case 'Visuals':
-				openSubState(new options.reVisualsSubState());
+				openSubState(new options.ReVisualsSubState());
 			case 'Gameplay':
-				openSubState(new options.reGameplaySettingsSubState());
+				openSubState(new options.ReGameplaySettingsSubState());
 			case 'UI':
-				openSubState(new options.reUISubState());
+				openSubState(new options.ReUISubState());
 		}
 	}
 

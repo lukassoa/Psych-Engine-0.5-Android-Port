@@ -19,6 +19,7 @@ import flixel.FlxSprite;
 import flixel.util.FlxSave;
 import haxe.Json;
 import flixel.tweens.FlxEase;
+import flixel.addons.transition.FlxTransitionableState;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
@@ -179,7 +180,12 @@ class NotesSubState extends MusicBeatSubstate
 
 		if (controls.BACK || (changingNote && controls.ACCEPT)) {
 			if(!changingNote) {
-				MusicBeatState.resetState();//FUCK
+				#if android
+                                FlxTransitionableState.skipNextTransOut = true;
+			        FlxG.resetState();
+                                #else
+                                close();
+                                #end
 			} else {
 				changeSelection();
 			}
