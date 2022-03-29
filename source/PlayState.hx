@@ -1116,8 +1116,8 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
                 versionTxt.cameras = [camOther];
-		laneunderlayOpponent.cameras = [camHUD];
-		laneunderlay.cameras = [camHUD];
+//		laneunderlayOpponent.cameras = [camHUD];
+//		laneunderlay.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		healthCounter.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
@@ -2377,10 +2377,10 @@ class PlayState extends MusicBeatState
 			healthCounter.text = 'Health: ' + Math.round(health * 50) + '%'  ;
 		}
 
-		if (playerStrums.length > 0 && opponentStrums.length > 0) {
-			laneunderlay.x = playerStrums.members[0].x;
-			laneunderlayOpponent.x = opponentStrums.members[0].x;
-		}
+//		if (playerStrums.length > 0 && opponentStrums.length > 0) {
+//			laneunderlay.x = playerStrums.members[0].x;
+//			laneunderlayOpponent.x = opponentStrums.members[0].x;
+//		}
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
