@@ -27,7 +27,7 @@ import Controls;
 
 using StringTools;
 
-class GraphicsSettingsSubState extends BaseOptionsMenu
+class reGraphicsSettingsSubState extends BaseOptionsMenu
 {
 	public function new()
 	{
