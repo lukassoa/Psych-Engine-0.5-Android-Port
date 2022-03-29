@@ -56,6 +56,17 @@ class VisualsUISubState extends BaseOptionsMenu
                         false);
                 addOption(option);
 
+		var option:Option = new Option('HP Bar Smoothness',
+                        "Pretty self explanatory, isn't it?",
+                        'smoothness',
+                        'int',
+                        7);
+                addOption(option);
+                option.minValue = 4;
+                option.maxValue = 12;
+                option.displayFormat = '%v';
+                option.onChange = onChangeFramerate;
+
 		var option:Option = new Option('KE Timebar',
                         'If checked, uses the KE timebar.',
                         'keTimeBar',

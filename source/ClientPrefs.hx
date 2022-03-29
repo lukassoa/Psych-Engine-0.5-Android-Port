@@ -13,7 +13,6 @@ class ClientPrefs {
 	public static var flashing:Bool = true;
 	public static var maxOpt:Bool = false;
 	public static var tabi:Bool = false;
-	public static var fpsCounterType:String = 'PE';
 	public static var tabiMax:Int = 3;
 	public static var fpsRain:Bool = false;
 	public static var iconBoping:Bool = false;
@@ -140,7 +139,6 @@ class ClientPrefs {
 		FlxG.save.data.keTimeBar = keTimeBar;
 		FlxG.save.data.iconBoping = iconBoping;
 		FlxG.save.data.scoreType = scoreType;
-		FlxG.save.data.fpsCounterType = fpsCounterType;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.memoryCounter = memoryCounter;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
@@ -186,9 +184,6 @@ class ClientPrefs {
 		if(FlxG.save.data.iconBoping != null) {
                         iconBoping = FlxG.save.data.iconBoping;
 		}
-		if(FlxG.save.data.fpsCounterType != null) {
-                        fpsCounterType = FlxG.save.data.fpsCounterType;
-                }
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
 		}

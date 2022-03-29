@@ -39,14 +39,6 @@ class VisualsUISubState extends BaseOptionsMenu
                         ['Psych Engine', 'Kade Engine', 'Disabled']);
                 addOption(option);
 
-		var option:Option = new Option('Fps Counter Type:',
-                        "What should the fps counter be like?",
-                        'fpsCounterType',
-                        'string',
-                        'PE',
-                        ['PE', 'KE', 'default+']);
-		addOption(option);
-
 		var option:Option = new Option('Memory Counter',
 			'If unchecked, disables the memory counter.',
                         'memoryCounter',
