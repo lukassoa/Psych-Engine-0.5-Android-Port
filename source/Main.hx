@@ -98,7 +98,7 @@ class Main extends Sprite
 
 	public function setFpsCounter()
 	{
-		switch (ClientPrefs.FpsCounterType)
+		switch (ClientPrefs.FmfpsCounterType)
 		{
 			case 'Kade':
 				public static var fpsVar:KadeEngineFPS;
@@ -107,7 +107,7 @@ class Main extends Sprite
 				bitmapFPS = ImageOutline.renderImage(fpsVar, 1, 0x000000, true);
 			        bitmapFPS.smoothing = true;
 				addChild(fpsVar);
-
+				
 			case 'PE':
 				public static var fpsVar:PE-FPS;
 				fpsVar = new PE-FPS(10, 3, 0xFFFFFF);
@@ -123,8 +123,7 @@ class Main extends Sprite
 				addChild(memoryCounter);
 				if(memoryCounter != null) {
 				memoryCounter.visible = ClientPrefs.memoryCounter;
-				}
 			}
 		}
-
 	}
+}
