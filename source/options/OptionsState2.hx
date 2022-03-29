@@ -27,7 +27,7 @@ import Controls;
 
 using StringTools;
 
-class OptionsState extends MusicBeatState
+class OptionsState2 extends MusicBeatState
 {
 	var options:Array<String> = ['Graphics', 'UI', 'Gameplay', 'Visuals'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
