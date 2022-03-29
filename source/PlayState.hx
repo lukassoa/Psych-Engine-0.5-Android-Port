@@ -183,7 +183,7 @@ class PlayState extends MusicBeatState
 /*	//lane underlay stuff
 	public var laneunderlay:FlxSprite;
 	public var laneunderlayOpponent:FlxSprite;
-/*
+*/
 
 	var botplaySine:Float = 0;
 	var botplayTxt:FlxText;
