@@ -122,7 +122,7 @@ class OptionsState extends MusicBeatState
 			changeSelection(1);
 		}
 		if (controls.UI_LEFT_P) {
-                        MusicBeatState.switchState(new options.OptionsState2());
+                        LoadingState.loadAndSwitchState(new options.OptionsState2());
                 }
 
 		if (controls.BACK) {
