@@ -33,6 +33,8 @@ class OptionsState extends MusicBeatState
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
+	private var descBox:FlxSprite;
+        private var descText:FlxText;
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
@@ -83,6 +85,16 @@ class OptionsState extends MusicBeatState
 		selectorNext = new Alphabet(0, 0, '<', true, false);
 		selectorNext.x += 100;
 		add(selectorRight);
+
+		descBox = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
+                descBox.alpha = 0.6;
+                add(descBox);
+
+                descText = new FlxText(50, 600, 1180, "Random Engine options", 32);
+                descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTexttBorderStyle.OUTLINE, FlxColor.BLACK);
+                descText.scrollFactor.set();
+                descText.borderSize = 2.4;
+                add(descText);
 
 		changeSelection();
 
