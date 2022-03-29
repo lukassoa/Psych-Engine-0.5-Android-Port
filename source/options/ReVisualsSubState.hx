@@ -65,7 +65,6 @@ class ReVisualsSubState extends BaseOptionsMenu
                 option.minValue = 4;
                 option.maxValue = 12;
                 option.displayFormat = '%v';
-                option.onChange = onChangeFramerate;
 
 		var option:Option = new Option('KE Timebar',
                         'If checked, uses the KE timebar.',

@@ -17,6 +17,7 @@ import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxSave;
+import flixel.addons.transition.FlxTransitionableState;
 import haxe.Json;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;

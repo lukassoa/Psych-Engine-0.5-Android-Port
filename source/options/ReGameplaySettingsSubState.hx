@@ -54,7 +54,7 @@ class ReGameplaySettingsSubState extends BaseOptionsMenu
                         'int',
                         2);
                 addOption(option);
-                option.minValue = ;
+                option.minValue = 2;
                 option.maxValue = 300;
                 option.displayFormat = '%v MAX';
 	

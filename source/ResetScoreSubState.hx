@@ -1,4 +1,5 @@
 import flixel.FlxG;
+import flixel.addons.transition.FlxTransitionableState;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.util.FlxColor;
