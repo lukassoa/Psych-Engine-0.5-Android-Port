@@ -940,7 +940,7 @@ class PlayState extends MusicBeatState
 
 		add(laneunderlayOpponent);
 		add(laneunderlay); //not working
-/*		
+*/
 
 		if(ClientPrefs.timeBarType == 'Song Name')
 		{
