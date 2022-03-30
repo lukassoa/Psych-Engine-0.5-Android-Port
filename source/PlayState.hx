@@ -3601,9 +3601,9 @@ class PlayState extends MusicBeatState
 
 
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
-		if (!ClientPrefs.detachedCam) {
-		comboSpr.cameras = [camHUD];
-		}
+		if (!ClientPrefs.detachedCam) 
+			comboSpr.cameras = [camHUD];
+		
 		comboSpr.screenCenter();
 		comboSpr.x = coolText.x;
 		comboSpr.acceleration.y = 600;

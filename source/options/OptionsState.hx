@@ -95,7 +95,7 @@ class OptionsState extends MusicBeatState
 		add(selectorRight);
 
 		selectorNext = new Alphabet(0, 0, '>', true, false);
-		selectorNext.x += 800;
+		selectorNext.x += 100;
 		add(selectorRight);
 
 		changeSelection();
