@@ -32,7 +32,6 @@ class ClientPrefs {
 	public static var camZooms:Bool = true;
 	public static var scoreType:String = 'Kade Engine';
 	public static var hideHud:Bool = false;
-	public static var smoothness:Int = 7;
 	public static var hideGf:Bool = false;
 	public static var memoryCounter:Bool = false;
 	public static var noteOffset:Int = 0;
@@ -133,7 +132,6 @@ class ClientPrefs {
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
-		FlxG.save.data.smoothness = smoothness;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.noAntimash = noAntimash;
 		FlxG.save.data.scoreZoom = scoreZoom;
@@ -197,9 +195,6 @@ class ClientPrefs {
                 }
 		if(FlxG.save.data.tabi != null) {
                         tabi = FlxG.save.data.tabi;
-                }
-		if(FlxG.save.data.smoothness != null) {
-                        smoothness = FlxG.save.data.smoothness;
                 }
 		if(FlxG.save.data.tabiMax != null) {
                         tabiMax = FlxG.save.data.tabiMax;
