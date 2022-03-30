@@ -72,6 +72,14 @@ class ReVisualsSubState extends BaseOptionsMenu
                         'bool',
                         false);
                 addOption(option);
+
+		var option:Option = new Option('Rainbow FPS',
+                        'If checked, makes the FPS Counter rainbow.',
+                        'fpsRain',
+                        'bool',
+                        false);
+                addOption(option);
+
 		
 		super();
 	}

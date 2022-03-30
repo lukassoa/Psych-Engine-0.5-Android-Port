@@ -1080,13 +1080,14 @@ class PlayState extends MusicBeatState
                 healthCounter.visible = ClientPrefs.healthCounter;
                 if(ClientPrefs.healthCounter) { add(healthCounter); }
 
-			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() , 16);
-			if (ClientPrefs.noAntimash) { 
+		versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() , 16);
+		if (ClientPrefs.noAntimash) { 
 			versionTxt = new FlxText(5, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.difficultyString() + "| no Antimash!", 16);
-			}
-			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			versionTxt.scrollFactor.set();
-			add(versionTxt);
+		}
+		versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionTxt.borderSize = 2;
+		versionTxt.scrollFactor.set();
+		add(versionTxt);
 
                 judgementCounter = new FlxText(20, 0, 0, "", 20);
                 judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -3553,7 +3554,9 @@ class PlayState extends MusicBeatState
 		}
 
 		rating.loadGraphic(Paths.image(pixelShitPart1 + daRating + pixelShitPart2));
+		if (!ClientPrefs.detachedCam){
 		rating.cameras = [camHUD];
+		}
 		rating.screenCenter();
 		rating.x = coolText.x - 40;
 		rating.y -= 60;
@@ -3584,6 +3587,7 @@ class PlayState extends MusicBeatState
 		currentTimingShown.borderColor = FlxColor.BLACK;
 		currentTimingShown.text = msTiming + "ms";
 		currentTimingShown.size = 20;
+		if (!ClientPrefs.detachedCam)
 		currentTimingShown.cameras = [camHUD];
 
 		if (currentTimingShown.alpha != 1)  {
@@ -3597,7 +3601,9 @@ class PlayState extends MusicBeatState
 
 
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
+		if (!ClientPrefs.detachedCam) {
 		comboSpr.cameras = [camHUD];
+		}
 		comboSpr.screenCenter();
 		comboSpr.x = coolText.x;
 		comboSpr.acceleration.y = 600;

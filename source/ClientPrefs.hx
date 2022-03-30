@@ -16,6 +16,7 @@ class ClientPrefs {
 	public static var tabiMax:Int = 3;
 	public static var fpsRain:Bool = false;
 	public static var iconBoping:Bool = false;
+	public static var detachedCam:Bool = false;
 	public static var playHitSounds:Bool = false;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -128,6 +129,7 @@ class ClientPrefs {
 		FlxG.save.data.judgements = judgements;
 		FlxG.save.data.fpsRain = fpsRain;
 		FlxG.save.data.hideHud = hideHud;
+		FlxG.save.data.detachedCam = detachedCam;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
@@ -225,6 +227,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideGf != null) {
                         hideGf = FlxG.save.data.hideGf;
+                }
+		if(FlxG.save.data.detachedCam != null) {
+                        detachedCam = FlxG.save.data.detachedCam;
                 }
 //		if(FlxG.save.data.noBg != null) {
 //                        noBg = FlxG.save.data.noBg;

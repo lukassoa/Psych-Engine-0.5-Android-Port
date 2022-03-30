@@ -67,6 +67,13 @@ class ReUISubState extends BaseOptionsMenu
                         false);
                 addOption(option);
 
+		var option:Option = new Option('Detached Ratings',
+                        'If checked, detaches the ratings from the camera.',
+                        'detachedCam',
+                        'bool',
+                        false);
+                addOption(option);
+
 		var option:Option = new Option('Arrows Opacity',
                         'How Opaque should the arrows be.',
 			'arrowOpacity',
