@@ -50,7 +50,7 @@ class OptionsState2 extends MusicBeatState
 
 	var selectorLeft:Alphabet;
 	var selectorRight:Alphabet;
-	var selectorNext:Alphabet;
+	var selectorBack:Alphabet;
 
 	override function create() {
 		#if desktop
@@ -81,8 +81,8 @@ class OptionsState2 extends MusicBeatState
 		selectorRight = new Alphabet(0, 0, '<', true, false);
 		add(selectorRight);
 
-		selectorNext = new Alphabet(0, 0, '<', true, false);
-		selectorNext.x += 100;
+		selectorBack = new Alphabet(0, 0, '<', true, false);
+		selectorBack.x += 800;
 		add(selectorRight);
 
                 descText = new FlxText(50, 600, 1180, "Random Engine options", 32);
@@ -114,9 +114,9 @@ class OptionsState2 extends MusicBeatState
 		if (controls.UI_DOWN_P) {
 			changeSelection(1);
 		}
-//		if (controls.UI_RIGHT_P) {
-//                        MusicBeatState.switchState(new options.OptionsState());
-//              }
+		if (controls.UI_LEFT_P) {
+                        MusicBeatState.switchState(new options.OptionsState());
+                }
 
 		if (controls.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));

@@ -94,8 +94,8 @@ class OptionsState extends MusicBeatState
 		selectorRight = new Alphabet(0, 0, '<', true, false);
 		add(selectorRight);
 
-		selectorRight = new Alphabet(0, 0, '>', true, false);
-		selectorRight.x += 800;
+		selectorNext = new Alphabet(0, 0, '>', true, false);
+		selectorNext.x += 800;
 		add(selectorRight);
 
 		changeSelection();
@@ -121,7 +121,7 @@ class OptionsState extends MusicBeatState
 		if (controls.UI_DOWN_P) {
 			changeSelection(1);
 		}
-		if (controls.UI_LEFT_P) {
+		if (controls.UI_RIGHT_P) {
                        MusicBeatState.switchState(new options.OptionsState2());
                 }
 
