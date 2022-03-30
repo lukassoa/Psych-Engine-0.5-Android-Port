@@ -172,9 +172,6 @@ class ClientPrefs {
 		if(FlxG.save.data.downScroll != null) {
 			downScroll = FlxG.save.data.downScroll;
 		}
-		if(FlxG.save.data.opponentArrowOpacity != null) {
-                      opponentArrowOpacity = FlxG.save.data.opponentArrowOpacity;
-                }
 		if(FlxG.save.data.memoryCounter != null) {
 			memoryCounter = FlxG.save.data.memoryCounter;
                 }

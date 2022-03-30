@@ -7,6 +7,7 @@ import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
+import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
@@ -80,9 +81,10 @@ class OptionsState2 extends MusicBeatState
 		add(selectorLeft);
 		selectorRight = new Alphabet(0, 0, '<', true, false);
 		add(selectorRight);
-
-		selectorBack = new Alphabet(0, 0, '<', true, false);
-		selectorBack.x += 100;
+		
+		selectorBack = new Alphabet(0, 330, '<', true, false);
+		selectorBack.screenCenter(X);
+		selectorBack.x -= 200;
 		add(selectorRight);
 
                 descText = new FlxText(50, 600, 1180, "Random Engine options", 32);
@@ -94,7 +96,7 @@ class OptionsState2 extends MusicBeatState
 		changeSelection();
 
 		#if android
-                addVirtualPad(FULL, A_B);
+                addVirtualPad(FULL, A);
                 #end
 
 		super.create();
@@ -115,13 +117,14 @@ class OptionsState2 extends MusicBeatState
 			changeSelection(1);
 		}
 		if (controls.UI_LEFT_P) {
+			FlxTransitionableState.skipNextTransOut = true;
                         MusicBeatState.switchState(new options.OptionsState());
                 }
 
-		if (controls.BACK) {
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
-		}
+//		if (controls.BACK) {
+//			FlxG.sound.play(Paths.sound('cancelMenu'));
+//			MusicBeatState.switchState(new MainMenuState());
+//		}
 
 		if (controls.ACCEPT) {
 			openSelectedSubstate(options[curSelected]);
