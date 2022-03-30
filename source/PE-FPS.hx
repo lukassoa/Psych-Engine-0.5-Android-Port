@@ -25,7 +25,7 @@ import openfl.system.System;
 @:fileXml('tags="haxe,release"')
 @:noDebug
 #end
-class FPS-PE extends TextField
+class PE-FPS extends TextField
 {
 	/**
 		The current frame rate, expressed using frames-per-second
@@ -91,10 +91,6 @@ class FPS-PE extends TextField
 			}
 
 			textColor = 0xFFFFFFFF;
-			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)
-			{
-				textColor = 0xFFFF0000;
-			}
 
 			#if (gl_stats && !disable_cffi && (!html5 || !canvas))
 			text += "\ntotalDC: " + Context3DStats.totalDrawCalls();
