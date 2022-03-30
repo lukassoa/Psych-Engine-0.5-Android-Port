@@ -83,7 +83,7 @@ class Main extends Sprite
 		SUtil.doTheCheck();
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
-		fpsVar = new PE-FPS(10, 3, 0xFFFFFF);
+		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
