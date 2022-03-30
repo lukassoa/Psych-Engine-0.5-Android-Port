@@ -25,11 +25,7 @@ class Main extends Sprite
 	var framerate:Int = 60; // How many frames per second the game should run at.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
-	public static var fpsVar:KadeEngineFPS;
-
-	public static var bitmapFPS:Bitmap;
-
-        public static var instance:Main;
+	public static var fpsVar:PE-FPS;
 
 	public static function main():Void
 	{
@@ -87,9 +83,7 @@ class Main extends Sprite
 		SUtil.doTheCheck();
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
-		fpsVar = new KadeEngineFPS(10, 3, 0xFFFFFF);
-                bitmapFPS = ImageOutline.renderImage(fpsVar, 1, 0x000000, true);
-                bitmapFPS.smoothing = true;
+		fpsVar = new PE-FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
@@ -100,9 +94,4 @@ class Main extends Sprite
 		FlxG.mouse.visible = false;
 		#end
 	}
-
-	public function changeFPSColor(color:FlxColor)
-        {
-                fpsVar.textColor = color;
-        }
 }
