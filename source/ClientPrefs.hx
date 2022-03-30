@@ -31,7 +31,7 @@ class ClientPrefs {
 	public static var camZooms:Bool = true;
 	public static var scoreType:String = 'Kade Engine';
 	public static var hideHud:Bool = false;
-	public static var smoothness:Int = 2;
+	public static var smoothness:Int = 7;
 	public static var hideGf:Bool = false;
 	public static var memoryCounter:Bool = false;
 	public static var noteOffset:Int = 0;
