@@ -3641,6 +3641,11 @@ class PlayState extends MusicBeatState
 		rating.updateHitbox();
 
 		var seperatedScore:Array<Int> = [];
+		
+		while(comboSprites.length>0){
+                        comboSprites[0].kill();
+                        comboSprites.remove(comboSprites[0]);
+                }
 
 		if(combo >= 1000) {
 			seperatedScore.push(Math.floor(combo / 1000) % 10);
