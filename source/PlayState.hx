@@ -1361,6 +1361,25 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
+	public function updateScore()
+                {
+                                if (ClientPrefs.scoreStyle == 'Random Engine') {
+					scoreTxt.text = 'Score: ' + songScore + ' // Misses: ' + songMisses + ' // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank: ' + ratingName + ' (' + ratingFC + ')' ;//peeps wanted no integer rating
+					if (cpuControlled)                        
+					scoreTxt.text = 'BotScore: ' + songScore + ' // Misses: ' + songMisses + ' // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank: ' + ratingName + ' (' + ratingFC + ')' ;//peeps wanted no integer rating
+				}
+                                else if (ClientPrefs.scoreStyle == 'Psych Engine') {
+                                        scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName  + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+                                        if (cpuControlled)
+                                        scoreTxt.text = 'BotScore: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+                                }
+                                else if (ClientPrefs.scoreStyle == 'Score Only') {
+                                        scoreTxt.text = 'Score: ' + songScore;
+                                        if (cpuControlled)
+                                        scoreTxt.text = 'BotScore: ' + songScore;
+                                }
+                }
+
 	public function addShaderToCamera(cam:String, effect:ShaderEffect)
 	{ // STOLE FROM ANDROMEDA
 
@@ -2360,25 +2379,6 @@ class PlayState extends MusicBeatState
 		}
 
 		super.update(elapsed);
-
-		public function updateScore()
-		{
-				if (ClientPrefs.scoreStyle == 'Random Engine') {
-					scoreTxt.text = 'Score: ' + songScore + ' // Misses: 0 // Rank: ' + ratingName;
-					if (cpuControlled)
-					scoreTxt.text = 'BotScore: ' + songScore + ' // Misses: 0 // Rank: ' + ratingName;
-				}
-				else if (ClientPrefs.scoreStyle == 'Psych Engine') {
-					scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
-					if (cpuControlled)
-					scoreTxt.text = 'BotScore: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(RatingPercent * 100, 2) + '%' + ' // Rank: ' + ratingName + ' (' + ratingFC + ')' ;//peeps wanted no integer rating
-				}
-				else if (ClientPrefs.scoreStyle == 'Score Only') {
-					scoreTxt.text = 'Score: ' + songScore;
-					if (cpuControlled)
-					scoreTxt.text = 'BotScore: ' + songScore;
-				}
-		}
 			
 			updateScore()
                         judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nE';
