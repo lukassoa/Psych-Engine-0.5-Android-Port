@@ -688,9 +688,6 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
-		if(ClientPrefs.hideGf)  
-		remove(gfGroup); 
-                else 
 		 add(gfGroup); 
 		
 
@@ -3751,7 +3748,7 @@ class PlayState extends MusicBeatState
 							sortedNotesList.push(daNote);
 							//notesDatas.push(daNote.noteData);
 						}
-						if (ClientPrefs.Antimash) {	// Credits to tposejank
+						if (ClientPrefs.antimash) {	// Credits to tposejank
 							canMiss = true;
 						}
 					}

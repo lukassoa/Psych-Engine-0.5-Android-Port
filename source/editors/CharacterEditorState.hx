@@ -222,7 +222,7 @@ class CharacterEditorState extends MusicBeatState
 		var playerXDifference = 0;
 		if(char.isPlayer) playerXDifference = 670;
 
-		if(onPixelBG && !ClientPrefs.maxOpt) {
+		if(onPixelBG) {
 			var playerYDifference:Float = 0;
 			if(char.isPlayer) {
 				playerXDifference += 200;

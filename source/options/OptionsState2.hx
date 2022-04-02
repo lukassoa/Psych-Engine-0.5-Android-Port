@@ -7,7 +7,6 @@ import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
-import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
@@ -30,7 +29,7 @@ using StringTools;
 
 class OptionsState2 extends MusicBeatState
 {
-	var options:Array<String> = ['Graphics', 'UI', 'Gameplay', 'Visuals'];
+	var options:Array<String> = ['UI', 'Gameplay', 'Visuals'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -38,8 +37,6 @@ class OptionsState2 extends MusicBeatState
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-			case 'Graphics':
-				openSubState(new options.ReGraphicsSettingsSubState());
 			case 'Visuals':
 				openSubState(new options.ReVisualsSubState());
 			case 'Gameplay':
@@ -51,7 +48,6 @@ class OptionsState2 extends MusicBeatState
 
 	var selectorLeft:Alphabet;
 	var selectorRight:Alphabet;
-	var selectorBack:Alphabet;
 
 	override function create() {
 		#if desktop
@@ -112,7 +108,6 @@ class OptionsState2 extends MusicBeatState
 			changeSelection(1);
 		}
 		if (controls.UI_LEFT_P) {
-			FlxTransitionableState.skipNextTransOut = true;
                         MusicBeatState.switchState(new options.OptionsState());
                 }
 

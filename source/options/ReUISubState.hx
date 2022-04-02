@@ -36,7 +36,15 @@ class ReUISubState extends BaseOptionsMenu
                         'scoreType',
                         'string',
                         'Kade Engine',
-                        ['Psych Engine', 'Kade Engine', 'Disabled']);
+                        ['Kade Engine', 'Psych Engine', 'Disabled']);
+                addOption(option);
+
+		var option:Option = new Option('Score Style:',
+                        "What should the score look like?",
+                        'scoreStyle',
+			'string',
+                        'Random Engine',
+                        ['Random Engine', 'Psych Engine', 'Score Only']);
                 addOption(option);
 
 		var option:Option = new Option('Memory Counter',
@@ -61,8 +69,8 @@ class ReUISubState extends BaseOptionsMenu
                 addOption(option);
 		
 		var option:Option = new Option('Play Hit Sounds',
-                        'If checked enables hit sounds.',
-                        'playHitSounds',
+                        'If checked enables hit sound.',
+                        'playHitSound',
                         'bool',
                         false);
                 addOption(option);
@@ -120,13 +128,6 @@ z                option.minValue = 0.0;
                 option.maxValue = 1;
                 option.changeValue = 0.1;
                 option.decimals = 1;
-                addOption(option);
-
-		var option:Option = new Option('Rainbow FPS',
-                        'If checked, makes the FPS Counter rainbow goes too fast for now',
-                        'fpsRain',
-			'bool',
-                        false);
                 addOption(option);
 
 		var option:Option = new Option('FPS Counter',
