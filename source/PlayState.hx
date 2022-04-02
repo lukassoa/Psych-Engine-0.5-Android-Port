@@ -3625,12 +3625,17 @@ class PlayState extends MusicBeatState
 
 		var seperatedScore:Array<Int> = [];
 
-		if(combo >= 1000) {
-			seperatedScore.push(Math.floor(combo / 1000) % 10);
+		var comboSplit:Array<String> = (combo + "").split('');
+
+		if (comboSplit.length == 1)
+		seperatedScore.push(0); // make sure theres a 0 in front or it looks weird lol!
+
+		for(i in 0...comboSplit.length)
+		{
+			var str:String = comboSplit[i]; //a bit of kade engine stealing
+			seperatedScore.push(Std.parseInt(str));
 		}
-		seperatedScore.push(Math.floor(combo / 100) % 10);
-		seperatedScore.push(Math.floor(combo / 10) % 10);
-		seperatedScore.push(combo % 10);
+
 
 		var daLoop:Int = 0;
 		for (i in seperatedScore)
@@ -3662,7 +3667,7 @@ class PlayState extends MusicBeatState
 			numScore.velocity.x = FlxG.random.float(-5, 5);
 			numScore.visible = !ClientPrefs.hideHud;
 
-			if (combo >= 10 || combo == 0)
+			if (combo >= 5 || combo == 0)
 				insert(members.indexOf(strumLineNotes), numScore);
 
 			FlxTween.tween(numScore, {alpha: 0}, 0.2, {
