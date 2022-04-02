@@ -40,8 +40,8 @@ class ClientPrefs {
         public static var detachedCam:Bool = false;
 	public static var keTimeBar:Bool = false;
 	// Arrow opacity stuff
-	public static var arrowOpacity:Int = 1;
-	public static var opponentArrowOpacity:Int = 1;
+	public static var arrowOpacity:Float = 1;
+	public static var opponentArrowOpacity:Float = 1;
 	// Misc Stuff
 	public static var antimash:Bool = true;
 	public static var memoryCounter:Bool = false;

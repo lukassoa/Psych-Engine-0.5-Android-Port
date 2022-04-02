@@ -34,7 +34,7 @@ class ReGameplaySettingsSubState extends BaseOptionsMenu
 		title = 'Gameplay';
 		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
 
-		var option:Option = new Option('No Antimash', 
+		var option:Option = new Option('Antimash', 
 			'If unchecked, disables antimash.', 
 			'antimash', 
 			'bool', 
