@@ -841,20 +841,12 @@ class PlayState extends MusicBeatState
 		if (OpenFlAssets.exists(file)) {
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
-		if (!ClientPrefs.hideGf)
-                {
+
 		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
 		if (OpenFlAssets.exists(file)) {
 			dialogue = CoolUtil.coolTextFile(SUtil.getPath() + file);
 			}
 		}
-		else if (ClientPrefs.hideGf)
-                {
-                        var file:String = Paths.txt(songName + '/' + songName + 'DialogueNoGf'); // Checks for vanilla/Senpai dialogue without Gf
-                        if (OpenFlAssets.exists(file))
-                        {
-                         dialogue = CoolUtil.coolTextFile(file);
-                }
     }
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
 		// doof.x += 70;
@@ -1232,7 +1224,7 @@ class PlayState extends MusicBeatState
 		CoolUtil.precacheSound('missnote1');
 		CoolUtil.precacheSound('missnote2');
 		CoolUtil.precacheSound('missnote3');
-		if (ClientPrefs.playHitSounds)
+		if (ClientPrefs.playHitSound)
 		{
 			CoolUtil.precacheSound('Tick');
 			FlxG.sound.play(Paths.sound('Tick'), 0);
@@ -3467,7 +3459,7 @@ class PlayState extends MusicBeatState
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.ratingOffset);
 		//trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
-		if (ClientPrefs.playHitSounds)
+		if (ClientPrefs.playHitSound)
 			FlxG.sound.play(Paths.sound('Tick'));
 		// boyfriend.playAnim('hey');
 		vocals.volume = 1;
@@ -3585,7 +3577,7 @@ class PlayState extends MusicBeatState
 		if (msTxt.alpha != 1)  {
 				msTxt.alpha = 1;
 		}
-				add(currentTimingShown);
+				add(msTxt);
 
 		rating.visible = !ClientPrefs.hideHud;
 		rating.x += ClientPrefs.comboOffset[0];
@@ -3608,7 +3600,7 @@ class PlayState extends MusicBeatState
 		msTxt.x = comboSpr.x + 100;
 		msTxt.y = rating.y + 100;
 		msTxt.acceleration.y = 600;
-		currentTimingShown.velocity.y -= 150;
+		msTxt.velocity.y -= 150;
 
 
 		comboSpr.velocity.x += FlxG.random.int(1, 10);

@@ -33,18 +33,10 @@ class ReVisualsSubState extends BaseOptionsMenu
 	{
 		title = 'Visuals';
 		rpcTitle = 'Visuals Settings Menu'; //for Discord Rich Presence
-
-		var option:Option = new Option('Score Type:',
-			"What should the be like?",
-                        'scoreType',
-                        'string',
-                        'Kade Engine',
-                        ['Psych Engine', 'Kade Engine', 'Disabled']);
-                addOption(option);
 		
 		var option:Option = new Option('Play Hit Sounds',
                         'If checked enables hit sounds.',
-                        'playHitSounds',
+                        'playHitSound',
                         'bool',
                         false);
                 addOption(option);		
@@ -62,14 +54,6 @@ class ReVisualsSubState extends BaseOptionsMenu
                         'bool',
                         false);
                 addOption(option);
-
-		var option:Option = new Option('Rainbow FPS',
-                        'If checked, makes the FPS Counter rainbow.',
-                        'fpsRain',
-                        'bool',
-                        false);
-                addOption(option);
-
 		
 		super();
 	}
