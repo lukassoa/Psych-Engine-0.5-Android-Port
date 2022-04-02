@@ -41,35 +41,12 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Score Type:',
-			"What should the be like?",
-                        'scoreType',
-                        'string',
-                        'Kade Engine',
-                        ['Psych Engine', 'Kade Engine', 'Disabled']);
-                addOption(option);
-
-		var option:Option = new Option('Memory Counter',
-			'If unchecked, disables the memory counter.',
-                        'memoryCounter',
-                        'bool',
-                        false);
-                addOption(option);
-		option.onChange = onChangeMemoryCounter;
-
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
 			'hideHud',
 			'bool',
 			false);
 		addOption(option);
-
-		var option:Option = new Option('Health Counter',
-                        'If checked, enables the health counter.',
-                        'healthCounter',
-                        'bool',
-                        false);
-                addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
@@ -93,47 +70,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Judgements',
-                        'If unchecked, hides judgements.',
-                        'judgements',
-                        'bool',
-                        true);
-                addOption(option);
-
-		var option:Option = new Option('Dynamic Cam',
-                        'If checked, enables dynamic cam movement, only works on vanilla FNF!.',
-                        'dynamicCam',
-                        'bool',
-                        false);
-                addOption(option);
-		
-		var option:Option = new Option('Play Hit Sounds',
-                        'If checked enables hit sounds.',
-                        'playHitSounds',
-                        'bool',
-                        false);
-                addOption(option);		
-	
-		var option:Option = new Option('Icon Boping',
-                        'If checked enables icon boping.',
-                        'iconBoping',
-                        'bool',
-                        false);
-                addOption(option);
-
-		var option:Option = new Option('KE Timebar',
-                        'If checked, uses the KE timebar.',
-                        'keTimeBar',
-                        'bool',
-                        false);
-                addOption(option);
-
 		var option:Option = new Option('Score Text Zoom on Hit',
 			"If unchecked, disables the Score text zooming\neverytime you hit a note.",
 			'scoreZoom',
 			'bool',
 			true);
 		addOption(option);
+
 		var option:Option = new Option('Health Bar Opacity',
 			'How Opaque should the health bar and icons be.',
 			'healthBarAlpha',
@@ -145,54 +88,6 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
-
-		var option:Option = new Option('Arrows Opacity',
-                        'How Opaque should the arrows be.',
-			'arrowOpacity',
-			'percent',
-                        1);
-                option.scrollSpeed = 1.6;
-                option.minValue = 0.0;
-                option.maxValue = 1;
-                option.changeValue = 0.1;
-		option.decimals = 1;
-                addOption(option);
-/*
-		var option:Option = new Option('Lane Opacity',
-                        'How Opaque should the lane underlay be.',
-                        'laneOpacity',
-                        'percent',
-                        1);
-                option.scrollSpeed = 1.6;
-                option.minValue = 0.0;
-                option.maxValue = 1;
-                option.changeValue = 0.1;
-                option.decimals = 1;
-                addOption(option);
-		
-		var option:Option = new Option('Enemy Lane Opacity',
-                        'How Opaque should the opponent lane be.',
-                        'opponentLaneOpacity',
-                        'percent',
-                        1);
-                option.scrollSpeed = 1.6;
-                option.minValue = 0.0;
-                option.maxValue = 1;
-                option.changeValue = 0.1;
-                option.decimals = 1;
-                addOption(option); //disabled for now L
-*/
-                var option:Option = new Option('Enemy Arrows Opacity',
-                        'How Opaque should the opponent arrows be.',
-                        'opponentArrowOpacity',
-                        'percent',
-                        1);
-                option.scrollSpeed = 1.6;
-                option.minValue = 0.0;
-                option.maxValue = 1;
-                option.changeValue = 0.1;
-                option.decimals = 1;
-                addOption(option);
 
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
@@ -210,10 +105,4 @@ class VisualsUISubState extends BaseOptionsMenu
 		if(Main.fpsVar != null)
 			Main.fpsVar.visible = ClientPrefs.showFPS;
 	}
-
-	function onChangeMemoryCounter()
-        {
-                if(Main.memoryCounter != null)
-                        Main.memoryCounter.visible = ClientPrefs.memoryCounter;
-        }	
 }

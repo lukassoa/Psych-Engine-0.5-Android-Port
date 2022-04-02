@@ -21,6 +21,7 @@ import haxe.Json;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
+import flixel.addons.transition.FlxTransitionableState;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxCamera;
@@ -157,7 +158,12 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		if (controls.BACK) {
 			ClientPrefs.saveSettings();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.resetState();
+			#if android
+                        FlxTransitionableState.skipNextTransOut = true;
+                        FlxG.resetState();
+                        #else
+                        close();
+                        #end
 		}
 
 		if(nextAccept <= 0)

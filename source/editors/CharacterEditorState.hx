@@ -222,7 +222,7 @@ class CharacterEditorState extends MusicBeatState
 		var playerXDifference = 0;
 		if(char.isPlayer) playerXDifference = 670;
 
-		if(onPixelBG && !ClientPrefs.maxOpt) {
+		if(onPixelBG) {
 			var playerYDifference:Float = 0;
 			if(char.isPlayer) {
 				playerXDifference += 200;
@@ -1118,7 +1118,7 @@ class CharacterEditorState extends MusicBeatState
 		FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
 
 		if(!charDropDown.dropPanel.visible) {
-			if (FlxG.keys.justPressed.ESCAPE #if mobileC || _virtualpad.buttonB.justPressed #end) {
+			if (FlxG.keys.justPressed.ESCAPE #if android || _virtualpad.buttonB.justPressed #end) {
 				if(goToPlayState) {
 					MusicBeatState.switchState(new PlayState());
 				} else {
@@ -1129,7 +1129,7 @@ class CharacterEditorState extends MusicBeatState
 				return;
 			}
 			
-			if (FlxG.keys.justPressed.R #if mobileC || _virtualpad.buttonZ.justPressed #end) {
+			if (FlxG.keys.justPressed.R #if android || _virtualpad.buttonZ.justPressed #end) {
 				FlxG.camera.zoom = 1;
 			}
 
@@ -1148,19 +1148,19 @@ class CharacterEditorState extends MusicBeatState
 				if (FlxG.keys.pressed.SHIFT)
 					addToCam *= 4;
 
-				if (FlxG.keys.pressed.I #if mobileC || _virtualpad.buttonUp.justPressed #end)
+				if (FlxG.keys.pressed.I #if android || _virtualpad.buttonUp.justPressed #end)
 					camFollow.y -= addToCam;
-				else if (FlxG.keys.pressed.K #if mobileC || _virtualpad.buttonDown.justPressed #end)
+				else if (FlxG.keys.pressed.K #if android || _virtualpad.buttonDown.justPressed #end)
 					camFollow.y += addToCam;
 
-				if (FlxG.keys.pressed.J #if mobileC || _virtualpad.buttonLeft.justPressed #end)
+				if (FlxG.keys.pressed.J #if android || _virtualpad.buttonLeft.justPressed #end)
 					camFollow.x -= addToCam;
-				else if (FlxG.keys.pressed.L #if mobileC || _virtualpad.buttonRight.justPressed #end)
+				else if (FlxG.keys.pressed.L #if android || _virtualpad.buttonRight.justPressed #end)
 					camFollow.x += addToCam;
 			}
 
 			if(char.animationsArray.length > 0) {
-				if (FlxG.keys.justPressed.W #if mobileC || _virtualpad.buttonA.justPressed #end)
+				if (FlxG.keys.justPressed.W #if android || _virtualpad.buttonA.justPressed #end)
 				{
 					curAnim -= 1;
 				}
@@ -1176,13 +1176,13 @@ class CharacterEditorState extends MusicBeatState
 				if (curAnim >= char.animationsArray.length)
 					curAnim = 0;
 
-				if (FlxG.keys.justPressed.S || FlxG.keys.justPressed.W || FlxG.keys.justPressed.SPACE #if mobileC || _virtualpad.buttonA.justPressed #end)
+				if (FlxG.keys.justPressed.S || FlxG.keys.justPressed.W || FlxG.keys.justPressed.SPACE #if android || _virtualpad.buttonA.justPressed #end)
 				{
 					char.playAnim(char.animationsArray[curAnim].anim, true);
 					genBoyOffsets();
 				}
 
-				if (controls.RESET #if mobileC || _virtualpad.buttonD.justPressed #end)
+				if (controls.RESET #if android || _virtualpad.buttonD.justPressed #end)
 				{
 					char.animationsArray[curAnim].offsets = [0, 0];
 					
@@ -1192,10 +1192,10 @@ class CharacterEditorState extends MusicBeatState
 				}
 
 				var controlArray:Array<Bool> = [
-					FlxG.keys.justPressed.LEFT #if mobileC || _virtualpad.buttonLeft.justPressed #end,
-					FlxG.keys.justPressed.RIGHT #if mobileC || _virtualpad.buttonRight.justPressed #end,
-					FlxG.keys.justPressed.UP #if mobileC || _virtualpad.buttonUp.justPressed #end,
-					FlxG.keys.justPressed.DOWN #if mobileC || _virtualpad.buttonDown.justPressed #end
+					FlxG.keys.justPressed.LEFT #if android || _virtualpad.buttonLeft.justPressed #end,
+					FlxG.keys.justPressed.RIGHT #if android || _virtualpad.buttonRight.justPressed #end,
+					FlxG.keys.justPressed.UP #if android || _virtualpad.buttonUp.justPressed #end,
+					FlxG.keys.justPressed.DOWN #if android || _virtualpad.buttonDown.justPressed #end
 				];			
 				
 				for (i in 0...controlArray.length) {

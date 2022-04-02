@@ -89,9 +89,6 @@ class Character extends FlxSprite
 		this.isPlayer = isPlayer;
 		antialiasing = ClientPrefs.globalAntialiasing;
 
-		if (ClientPrefs.maxOpt)
-                        kill();
-
 		var library:String = null;
 		switch (curCharacter)
 		{

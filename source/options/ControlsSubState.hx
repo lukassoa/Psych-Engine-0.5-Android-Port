@@ -17,6 +17,7 @@ import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxSave;
+import flixel.addons.transition.FlxTransitionableState;
 import haxe.Json;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -134,7 +135,12 @@ class ControlsSubState extends MusicBeatSubstate {
 
 			if (controls.BACK) {
 				ClientPrefs.reloadControls();
-				MusicBeatState.resetState();
+				#if android     
+				FlxTransitionableState.skipNextTransOut = true;
+                	        FlxG.resetState();
+        	                #else
+	                        close();
+                        	#end
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 			}
 

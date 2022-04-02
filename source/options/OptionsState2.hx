@@ -27,37 +27,22 @@ import Controls;
 
 using StringTools;
 
-class OptionsState extends MusicBeatState
+class OptionsState2 extends MusicBeatState
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Mobile Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
+	var options:Array<String> = ['UI', 'Gameplay', 'Visuals'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
-	static var goToPlayState:Bool = false;
-
-	public function new(?goToPlayState:Bool)
-        {
-                super();
-                if (goToPlayState != null)
-                        OptionsState.goToPlayState = goToPlayState;
-        }
+        private var descText:FlxText;
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-			case 'Note Colors':
-				openSubState(new options.NotesSubState());
-			case 'Controls':
-				openSubState(new options.ControlsSubState());
-			case 'Graphics':
-				openSubState(new options.GraphicsSettingsSubState());
-			case 'Visuals and UI':
-				openSubState(new options.VisualsUISubState());
+			case 'Visuals':
+				openSubState(new options.ReVisualsSubState());
 			case 'Gameplay':
-				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo':
-				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
-			case 'Mobile Controls':
-				MusicBeatState.switchState(new android.CastomAndroidControls());
+				openSubState(new options.ReGameplaySettingsSubState());
+			case 'UI':
+				openSubState(new options.ReUISubState());
 		}
 	}
 
@@ -93,10 +78,16 @@ class OptionsState extends MusicBeatState
 		selectorRight = new Alphabet(0, 0, '<', true, false);
 		add(selectorRight);
 
+                descText = new FlxText(50, 600, 1180, "Random Engine options", 32);
+                descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+                descText.scrollFactor.set();
+                descText.borderSize = 2.4;
+                add(descText);
+
 		changeSelection();
 
 		#if android
-                addVirtualPad(FULL, A_B);
+                addVirtualPad(FULL, A);
                 #end
 
 		super.create();
@@ -116,20 +107,14 @@ class OptionsState extends MusicBeatState
 		if (controls.UI_DOWN_P) {
 			changeSelection(1);
 		}
-		if (controls.UI_RIGHT_P) {
-                        MusicBeatState.switchState(new options.OptionsState2());
+		if (controls.UI_LEFT_P) {
+                        MusicBeatState.switchState(new options.OptionsState());
                 }
 
-		if (controls.BACK) {
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if (goToPlayState) {
-                                StageData.loadDirectory(PlayState.SONG);
-                                goToPlayState = false;
-                                LoadingState.loadAndSwitchState(new PlayState(), true);
-                        } else {
-			MusicBeatState.switchState(new MainMenuState());
-			}
-		}
+//		if (controls.BACK) {
+//			FlxG.sound.play(Paths.sound('cancelMenu'));
+//			MusicBeatState.switchState(new MainMenuState());
+//		}
 
 		if (controls.ACCEPT) {
 			openSelectedSubstate(options[curSelected]);
