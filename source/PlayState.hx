@@ -155,6 +155,8 @@ class PlayState extends MusicBeatState
 	public var health:Float = 1;
 	public var shownHealth:Float = 1;
 	public var combo:Int = 0;
+	
+	public static var lastCombo:Array<FlxSprite>; // Credits to gui-iago (bedrock engine guy)
 
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
@@ -291,6 +293,8 @@ class PlayState extends MusicBeatState
                 shits = 0;
 		debugKeysChart = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_2'));
+		
+		lastCombo = [];
 
 		keysArray = [
 			ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_left')),
@@ -3468,7 +3472,16 @@ class PlayState extends MusicBeatState
 		var coolText:FlxText = new FlxText(0, 0, 0, placement, 32);
 		coolText.screenCenter();
 		coolText.x = FlxG.width * 0.35;
-		//
+		
+		if (lastCombo != null)
+		{
+			while (lastCombo.length > 0)
+			{
+				lastCombo[0].kill();
+				lastCombo.remove(lastCombo[0]);
+			}
+		}
+
 
 		var rating:FlxSprite = new FlxSprite();
 		var score:Int = 350;
@@ -3638,13 +3651,15 @@ class PlayState extends MusicBeatState
 			var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
 			if (!ClientPrefs.detachedCam)
 			numScore.cameras = [camHUD];
-	
+		
 			numScore.screenCenter();
 			numScore.x = coolText.x + (43 * daLoop) - 90;
 			numScore.y += 80;
-
+	
 			numScore.x += ClientPrefs.comboOffset[2];
 			numScore.y -= ClientPrefs.comboOffset[3];
+
+			lastCombo.push(numScore);
 
 			if (!PlayState.isPixelStage)
 			{
