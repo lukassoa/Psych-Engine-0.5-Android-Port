@@ -3,8 +3,9 @@ its mostly things from kade.
 i just added my own options and added and fixed some stuffs.
 
 ## Credits:
-* Discussions page - Icon boping
+* Discussions page - Icon boping 
 * Kade Engine - Kade options and stuffs
+* Phoneguytech75 - Note Skin code
 * Vs Tabi - Tabi option lol
 * Jigsaw - Porting psych engine
 * Randomxd(me) - Putting it all together,and also some stuffs and some fixes 
