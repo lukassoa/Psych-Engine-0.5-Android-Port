@@ -81,11 +81,6 @@ class OptionsState2 extends MusicBeatState
 		add(selectorLeft);
 		selectorRight = new Alphabet(0, 0, '<', true, false);
 		add(selectorRight);
-		
-		selectorBack = new Alphabet(0, 330, '<', true, false);
-		selectorBack.screenCenter(X);
-		selectorBack.x -= 200;
-		add(selectorRight);
 
                 descText = new FlxText(50, 600, 1180, "Random Engine options", 32);
                 descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);

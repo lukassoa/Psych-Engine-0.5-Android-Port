@@ -16,7 +16,6 @@ import flixel.FlxSubState;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.transition.FlxTransitionableState;
 import flixel.util.FlxSave;
 import haxe.Json;
 import flixel.tweens.FlxEase;
@@ -95,10 +94,6 @@ class OptionsState extends MusicBeatState
 		selectorRight = new Alphabet(0, 0, '<', true, false);
 		add(selectorRight);
 
-		selectorNext = new Alphabet(0, 330, '>', true, false);
-		selectorNext.x += 200;
-		add(selectorRight);
-
 		changeSelection();
 
 		#if android
@@ -123,7 +118,6 @@ class OptionsState extends MusicBeatState
 			changeSelection(1);
 		}
 		if (controls.UI_RIGHT_P) {
-			FlxTransitionableState.skipNextTransOut = true;
                         MusicBeatState.switchState(new options.OptionsState2());
                 }
 
