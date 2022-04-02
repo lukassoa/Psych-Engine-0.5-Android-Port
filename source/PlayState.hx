@@ -3627,8 +3627,8 @@ class PlayState extends MusicBeatState
 
 		var comboSplit:Array<String> = (combo + "").split('');
 
-		if (comboSplit.length == 1)
-		seperatedScore.push(0); // make sure theres a 0 in front or it looks weird lol!
+//		if (comboSplit.length == 1)
+//		seperatedScore.push(0); // make sure theres a 0 in front or it looks weird lol!
 
 		for(i in 0...comboSplit.length)
 		{
@@ -3667,7 +3667,7 @@ class PlayState extends MusicBeatState
 			numScore.velocity.x = FlxG.random.float(-5, 5);
 			numScore.visible = !ClientPrefs.hideHud;
 
-			if (combo >= 5 || combo == 0)
+			if (combo >= 1 || combo == 0)
 				insert(members.indexOf(strumLineNotes), numScore);
 
 			FlxTween.tween(numScore, {alpha: 0}, 0.2, {
