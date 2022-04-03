@@ -1,0 +1,30 @@
+{
+	"storyName": "I Got Ur IP Adress",
+	"hideFreeplay": false,
+	"weekBackground": "call",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"weekCharacters": [
+		"Menu_Hecker",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Hecker",
+			"hecker",
+			[
+				20,
+				20,
+				20
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "weekhecker"
+}
